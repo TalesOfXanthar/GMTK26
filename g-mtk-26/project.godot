@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="GMtk26"
-run/main_scene="uid://cu04hqgnpn8nm"
+run/main_scene="uid://crpq57gia7ovw"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://visual assets/icon.svg"
+run/size/viewport_width=1024
+run/size/viewport_height=512
+
+[autoload]
+
+GameSaver="*uid://cbn30uq2m8ghs"
 
 [display]
 
