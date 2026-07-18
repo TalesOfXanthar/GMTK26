@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cu04hqgnpn8nm"]
+
+[ext_resource type="Texture2D" uid="uid://4vv64nkt180n" path="res://placeholder_sprites/save_button_texture.png" id="1_ak2if"]
+[ext_resource type="Texture2D" uid="uid://h787nm0aj1fy" path="res://placeholder_sprites/title_background_texture.png" id="1_ig5kc"]
+[ext_resource type="Texture2D" uid="uid://da0k8645ddytr" path="res://placeholder_sprites/load_button_texture.png" id="2_ig5kc"]
+
+[node name="TitleScreen" type="Node" unique_id=19361815]
+
+[node name="BackgroundTexture" type="Sprite2D" parent="." unique_id=1224736764]
+position = Vector2(511.99997, 255.75009)
+scale = Vector2(8, 8.00781)
+texture = ExtResource("1_ig5kc")
+
+[node name="SaveButton" type="TextureButton" parent="." unique_id=649584859]
+offset_left = 392.0
+offset_top = 80.0
+offset_right = 648.0
+offset_bottom = 208.0
+texture_normal = ExtResource("1_ak2if")
+stretch_mode = 0
+
+[node name="LoadButton" type="TextureButton" parent="." unique_id=927352920]
+offset_left = 704.0
+offset_top = 72.0
+offset_right = 952.0
+offset_bottom = 200.0
+texture_normal = ExtResource("2_ig5kc")
+stretch_mode = 0
