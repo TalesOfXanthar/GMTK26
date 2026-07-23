@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://chajvj4vq38bf"]
 
-[ext_resource type="Script" uid="uid://bqljxxu8ijskg" path="res://player_ship.gd" id="1_q2qul"]
+[ext_resource type="Script" uid="uid://bqljxxu8ijskg" path="res://scripts/player_ship.gd" id="1_q2qul"]
 [ext_resource type="Texture2D" uid="uid://dt0xt4iet4l2m" path="res://visual assets/placeholder_sprites/player_ship.png" id="2_gbmm3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bmkmh"]
