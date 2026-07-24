@@ -1,7 +1,8 @@
 [gd_resource type="FontVariation" format=3 uid="uid://begjtykdigi2s"]
 
-[ext_resource type="FontFile" uid="uid://sldw0wv7wf8g" path="res://visual assets/theme_assets/half_serif_unspaced.ttf" id="1_f6uhg"]
+[ext_resource type="FontFile" uid="uid://sldw0wv7wf8g" path="res://visual assets/theme_assets/half_serif_unspaced.ttf" id="1_6m7ql"]
 
 [resource]
-base_font = ExtResource("1_f6uhg")
+base_font = ExtResource("1_6m7ql")
 spacing_glyph = 1
+spacing_top = 1
