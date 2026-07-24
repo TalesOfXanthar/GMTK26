@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://djqf6p1tkkgcj"]
+
+[ext_resource type="Texture2D" uid="uid://drrrlne8jnbs3" path="res://visual assets/placeholder_sprites/space.png" id="1_ma5ay"]
+[ext_resource type="PackedScene" uid="uid://chajvj4vq38bf" path="res://scenes/player_ship.tscn" id="1_rcdtf"]
+[ext_resource type="Script" uid="uid://bj7or4dpms8n6" path="res://scripts/camera_2d.gd" id="3_vu1g8"]
+
+[node name="SpaceScene" type="Node2D" unique_id=1545532700]
+texture_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=431705974]
+position = Vector2(80, 80)
+texture = ExtResource("1_ma5ay")
+
+[node name="CharacterBody2D" parent="." unique_id=1661900380 instance=ExtResource("1_rcdtf")]
+texture_filter = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1144326815 node_paths=PackedStringArray("player")]
+texture_filter = 1
+script = ExtResource("3_vu1g8")
+player = NodePath("../CharacterBody2D")

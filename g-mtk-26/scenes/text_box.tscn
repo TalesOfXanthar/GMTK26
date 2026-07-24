@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c041vhoynl6n4"]
 
 [ext_resource type="Script" uid="uid://dev54ka0hrud8" path="res://scripts/text_box.gd" id="1_wscpg"]
+[ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual assets/text_theme.tres" id="2_dyarx"]
 
 [node name="Control" type="Control" unique_id=635419347]
 layout_mode = 3
@@ -29,6 +30,7 @@ script = ExtResource("1_wscpg")
 [node name="mainText" type="RichTextLabel" parent="ScrollContainer/VBoxContainer" unique_id=1076653348]
 custom_minimum_size = Vector2(1024, 50)
 layout_mode = 2
+theme = ExtResource("2_dyarx")
 text = "This is a rich text label This is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text label"
 fit_content = true
 scroll_active = false

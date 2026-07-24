@@ -7,7 +7,7 @@ func _physics_process(delta: float) -> void:
 	
 	rotation_direction = Input.get_axis("rotate_counterclockwise", "rotate_clockwise")
 	if rotation_direction != 0.0:	
-		rotation_velocity += lerpf(rotation_velocity, rotation_direction * 0.05, 0.02)
+		rotation_velocity += lerpf(rotation_velocity, rotation_direction * 0.05, 0.04)
 		rotation_velocity = clampf(rotation_velocity, -0.07, 0.07)
 	else:
 		rotation_velocity = 0

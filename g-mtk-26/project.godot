@@ -25,6 +25,11 @@ GameSaver="*uid://cbn30uq2m8ghs"
 
 window/size/viewport_width=1024
 window/size/viewport_height=512
+window/stretch/mode="viewport"
+
+[global_group]
+
+nodes_with_shaders="Nodes that have shaders attached and need to be called."
 
 [input]
 

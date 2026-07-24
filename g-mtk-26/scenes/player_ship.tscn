@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dt0xt4iet4l2m" path="res://visual assets/placeholder_sprites/player_ship.png" id="2_gbmm3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bmkmh"]
-radius = 32.0
+radius = 8.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1661900380]
 script = ExtResource("1_q2qul")
@@ -14,5 +14,4 @@ shape = SubResource("CircleShape2D_bmkmh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2021115122]
 position = Vector2(1.9073486e-06, 1.9073486e-06)
-scale = Vector2(3.9999998, 3.9999998)
 texture = ExtResource("2_gbmm3")
