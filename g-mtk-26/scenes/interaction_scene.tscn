@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bjjbquu5jn3df"]
+
+[ext_resource type="PackedScene" uid="uid://c041vhoynl6n4" path="res://scenes/text_box.tscn" id="1_ucwcy"]
+[ext_resource type="Texture2D" uid="uid://bpncp0kgs7ekj" path="res://visual assets/portraits/stranded_astronaut.png" id="2_8i5l2"]
+
+[node name="InteractionScene" type="Node" unique_id=1861834705]
+
+[node name="Control" parent="." unique_id=635419347 instance=ExtResource("1_ucwcy")]
+offset_top = 128.0
+offset_bottom = -24.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1810490103]
+position = Vector2(192, 80)
+texture = ExtResource("2_8i5l2")

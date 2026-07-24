@@ -3,20 +3,19 @@
 [ext_resource type="Script" uid="uid://dev54ka0hrud8" path="res://scripts/text_box.gd" id="1_wscpg"]
 [ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual assets/theme_assets/text_theme.tres" id="2_dyarx"]
 
-[node name="Control" type="Control" unique_id=635419347 node_paths=PackedStringArray("current_label", "choice_1", "choice_2", "choice_3", "timer")]
+[node name="Control" type="Control" unique_id=635419347 node_paths=PackedStringArray("choice_1", "choice_2", "choice_3", "timer")]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 64.0
+offset_left = 48.0
 offset_top = 16.0
-offset_right = -64.0
-offset_bottom = -152.0
+offset_right = -320.0
+offset_bottom = -179.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wscpg")
-current_label = NodePath("TabContainer/DescriptionLabel")
 choice_1 = NodePath("TabContainer/ScrollContainer/VBoxContainer/Choice1")
 choice_2 = NodePath("TabContainer/ScrollContainer/VBoxContainer/Choice2")
 choice_3 = NodePath("TabContainer/ScrollContainer/VBoxContainer/Choice3")
@@ -28,20 +27,20 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -60.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TabContainer" type="TabContainer" parent="." unique_id=2129235128]
 layout_mode = 0
-offset_right = 256.0
-offset_bottom = 88.0
+offset_right = 400.0
+offset_bottom = 176.0
 theme = ExtResource("2_dyarx")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer" unique_id=798582230]
-visible = false
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
 metadata/_tab_index = 0
@@ -52,7 +51,7 @@ custom_maximum_size = Vector2(512, 128)
 layout_mode = 2
 theme = ExtResource("2_dyarx")
 
-[node name="QuestionLabel" type="RichTextLabel" parent="TabContainer/ScrollContainer/VBoxContainer" unique_id=1076653348]
+[node name="mainText" type="RichTextLabel" parent="TabContainer/ScrollContainer/VBoxContainer" unique_id=1076653348]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
 theme = ExtResource("2_dyarx")
@@ -60,7 +59,6 @@ text = "You come across a stranded astronaut. rororo
 wow"
 fit_content = true
 scroll_active = false
-visible_characters_behavior = 1
 
 [node name="Choice1" type="Button" parent="TabContainer/ScrollContainer/VBoxContainer" unique_id=836262427]
 layout_mode = 2
@@ -85,11 +83,11 @@ text = "1. this is the first choice"
 flat = true
 alignment = 0
 
-[node name="DescriptionLabel" type="RichTextLabel" parent="TabContainer" unique_id=567164133]
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer" unique_id=567164133]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_dyarx")
-text = "Hello?weohfoewhfouhwuogfwugfuegwfuwfufhwufhfeowhfhefhwoehfoheowfho"
-visible_characters_behavior = 1
+text = "Hello?"
 metadata/_tab_index = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=319439433]
