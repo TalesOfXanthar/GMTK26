@@ -1,7 +1,0 @@
-[gd_resource type="Theme" format=3 uid="uid://b1ivpb6xgg05v"]
-
-[ext_resource type="FontFile" uid="uid://c6of1i3xacs81" path="res://visual assets/PixelHalfSerif2.ttf" id="1_2nht7"]
-
-[resource]
-RichTextLabel/font_sizes/normal_font_size = 10
-RichTextLabel/fonts/normal_font = ExtResource("1_2nht7")

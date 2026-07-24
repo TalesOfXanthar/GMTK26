@@ -1,42 +1,51 @@
 [gd_scene format=3 uid="uid://c041vhoynl6n4"]
 
 [ext_resource type="Script" uid="uid://dev54ka0hrud8" path="res://scripts/text_box.gd" id="1_wscpg"]
-[ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual assets/text_theme.tres" id="2_dyarx"]
+[ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual assets/theme_assets/text_theme.tres" id="2_dyarx"]
 
 [node name="Control" type="Control" unique_id=635419347]
+custom_minimum_size = Vector2(1, 1)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 16.0
+offset_right = -311.5
+offset_bottom = -179.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=798582230]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -130.0
+offset_right = 263.5
+offset_bottom = 59.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1180696259]
 custom_minimum_size = Vector2(1, 1)
+custom_maximum_size = Vector2(512, 128)
 layout_mode = 2
+theme = ExtResource("2_dyarx")
 script = ExtResource("1_wscpg")
 
 [node name="mainText" type="RichTextLabel" parent="ScrollContainer/VBoxContainer" unique_id=1076653348]
-custom_minimum_size = Vector2(1024, 50)
+custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
 theme = ExtResource("2_dyarx")
-text = "This is a rich text label This is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text labelThis is a rich text label"
+text = "You come across a stranded astronaut. rororo
+wow"
 fit_content = true
 scroll_active = false
 
 [node name="Choice_1" type="Button" parent="ScrollContainer/VBoxContainer" unique_id=836262427]
 layout_mode = 2
+theme = ExtResource("2_dyarx")
 theme_override_colors/font_hover_color = Color(0.7835233, 0.7835233, 0.78352404, 1)
 text = "1. this is the first choice this is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choice"
 flat = true
@@ -45,12 +54,14 @@ autowrap_mode = 2
 
 [node name="Choice_2" type="Button" parent="ScrollContainer/VBoxContainer" unique_id=737821499]
 layout_mode = 2
+theme = ExtResource("2_dyarx")
 text = "1. this is the first choice"
 flat = true
 alignment = 0
 
 [node name="Choice_3" type="Button" parent="ScrollContainer/VBoxContainer" unique_id=2078901006]
 layout_mode = 2
+theme = ExtResource("2_dyarx")
 text = "1. this is the first choice"
 flat = true
 alignment = 0
@@ -61,7 +72,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 375.0
+offset_right = 183.5
+offset_bottom = 67.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)

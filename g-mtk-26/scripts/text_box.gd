@@ -7,7 +7,7 @@ var diplayChoice2 = true
 var diplayChoice3 = false
 
 #This declares the variables and sets default text for all text options
-var mainTextContent = "blah blah "
+var mainTextContent = "You come across a stranded astronaut. rororo"
 var choice1Text = "dfgh"
 var choice2Text = "sdfghj"
 var choice3Text = ""
@@ -18,7 +18,7 @@ var choice1Prefix = "1. "
 var choice2Prefix = "2. "
 var choice3Prefix = "3. "
 
-#Basically sets up the entire text box system. Toggle calls visibility var, node is the node you want to effect, prefix is what will always come inline before the option, text is the text in richtext format, and keypress is the shortcut to select that option
+##Basically sets up the entire text box system. Toggle calls visibility var, node is the node you want to effect, prefix is what will always come inline before the option, text is the text in richtext format, and keypress is the shortcut to select that option
 func displayTextOption(toggle, node, prefix, text, keypress):
 #Function to show or hide the text box and choices. The variable name sets the state and the node is what changes
 	node.text = text + prefix

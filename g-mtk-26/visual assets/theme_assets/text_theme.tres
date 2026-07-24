@@ -1,0 +1,11 @@
+[gd_resource type="Theme" format=3 uid="uid://b1ivpb6xgg05v"]
+
+[ext_resource type="FontVariation" uid="uid://begjtykdigi2s" path="res://visual assets/theme_assets/half_serif_spaced.tres" id="2_o306s"]
+
+[resource]
+Button/font_sizes/font_size = 10
+Button/fonts/font = ExtResource("2_o306s")
+RichTextLabel/constants/line_separation = -1
+RichTextLabel/font_sizes/normal_font_size = 10
+RichTextLabel/fonts/normal_font = ExtResource("2_o306s")
+VBoxContainer/constants/separation = 0

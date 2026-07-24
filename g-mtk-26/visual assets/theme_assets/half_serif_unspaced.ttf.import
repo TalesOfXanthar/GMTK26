@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c6of1i3xacs81"
-path="res://.godot/imported/PixelHalfSerif2.ttf-21cfa59c9fd3581419a62bb75da161ff.fontdata"
+uid="uid://sldw0wv7wf8g"
+path="res://.godot/imported/half_serif_unspaced.ttf-cc86cbc25a3218165f8c3d8f7301f444.fontdata"
 
 [deps]
 
-source_file="res://visual assets/PixelHalfSerif2.ttf"
-dest_files=["res://.godot/imported/PixelHalfSerif2.ttf-21cfa59c9fd3581419a62bb75da161ff.fontdata"]
+source_file="res://visual assets/theme_assets/half_serif_unspaced.ttf"
+dest_files=["res://.godot/imported/half_serif_unspaced.ttf-cc86cbc25a3218165f8c3d8f7301f444.fontdata"]
 
 [params]
 

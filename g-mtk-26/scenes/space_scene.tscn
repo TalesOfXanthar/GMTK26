@@ -3,18 +3,40 @@
 [ext_resource type="Texture2D" uid="uid://drrrlne8jnbs3" path="res://visual assets/placeholder_sprites/space.png" id="1_ma5ay"]
 [ext_resource type="PackedScene" uid="uid://chajvj4vq38bf" path="res://scenes/player_ship.tscn" id="1_rcdtf"]
 [ext_resource type="Script" uid="uid://bj7or4dpms8n6" path="res://scripts/camera_2d.gd" id="3_vu1g8"]
+[ext_resource type="PackedScene" uid="uid://c041vhoynl6n4" path="res://scenes/text_box.tscn" id="4_4c1q5"]
 
-[node name="SpaceScene" type="Node2D" unique_id=1545532700]
-texture_filter = 1
+[node name="SpaceScene" type="Node" unique_id=1816419304]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=431705974]
-position = Vector2(80, 80)
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1663616680]
+z_index = -4
+z_as_relative = false
+offset_right = 6208.0
+offset_bottom = 3648.0
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1102736199]
+follow_viewport_enabled = true
+
+[node name="Space" type="Node2D" parent="CanvasLayer" unique_id=769989898]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Space" unique_id=431705974]
+position = Vector2(688, 600)
 texture = ExtResource("1_ma5ay")
 
-[node name="CharacterBody2D" parent="." unique_id=1661900380 instance=ExtResource("1_rcdtf")]
+[node name="CharacterBody2D" parent="CanvasLayer/Space" unique_id=1661900380 instance=ExtResource("1_rcdtf")]
 texture_filter = 1
+position = Vector2(1040, 608)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1144326815 node_paths=PackedStringArray("player")]
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/Space" unique_id=1144326815 node_paths=PackedStringArray("player")]
 texture_filter = 1
 script = ExtResource("3_vu1g8")
 player = NodePath("../CharacterBody2D")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=6119920]
+layer = 2
+
+[node name="Control" parent="CanvasLayer2" unique_id=635419347 instance=ExtResource("4_4c1q5")]
+offset_left = 64.0
+offset_top = 128.0
+offset_right = -64.0
+offset_bottom = -24.0

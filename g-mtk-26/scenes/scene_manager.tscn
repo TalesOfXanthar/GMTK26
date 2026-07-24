@@ -1,25 +1,7 @@
 [gd_scene format=3 uid="uid://crpq57gia7ovw"]
 
-[ext_resource type="Shader" uid="uid://b1vb2dlio58lk" path="res://scripts/shader.gdshader" id="1_65mdo"]
 [ext_resource type="PackedScene" uid="uid://djqf6p1tkkgcj" path="res://scenes/space_scene.tscn" id="1_we8k5"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vu1g8"]
-shader = ExtResource("1_65mdo")
-shader_parameter/cam_offset = Vector2(0, 0)
 
 [node name="SceneManager" type="Node" unique_id=1948687918]
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1410389981 groups=["nodes_with_shaders"]]
-texture_filter = 1
-material = SubResource("ShaderMaterial_vu1g8")
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(4, 4)
-pivot_offset = Vector2(87, 54)
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=298027558]
-handle_input_locally = false
-size = Vector2i(384, 216)
-render_target_update_mode = 4
-
-[node name="SpaceScene" parent="SubViewportContainer/SubViewport" unique_id=1545532700 instance=ExtResource("1_we8k5")]
+[node name="SpaceScene" parent="." unique_id=1545532700 instance=ExtResource("1_we8k5")]
