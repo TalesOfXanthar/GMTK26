@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ckrhj4skgoxfl"]
+
+[ext_resource type="Script" uid="uid://c175xvwglsfbd" path="res://inventory.gd" id="1_pohso"]
+[ext_resource type="Script" uid="uid://cnf8ogn3v206q" path="res://tile.gd" id="2_psafj"]
+
+[node name="GridContainer" type="GridContainer" unique_id=1376101521]
+offset_right = 99.0
+offset_bottom = 99.0
+columns = 3
+script = ExtResource("1_pohso")
+
+[node name="tile_1" type="Button" parent="." unique_id=572644670]
+custom_minimum_size = Vector2(33, 33)
+layout_mode = 2
+action_mode = 0
+icon_alignment = 1
+vertical_icon_alignment = 0
+script = ExtResource("2_psafj")
