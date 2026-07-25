@@ -2,6 +2,13 @@ extends Label
 
 @export var countdown_timer : Timer
 
+func _ready() -> void:
+	GlobalData.stop_countdown.connect(timer_pause_unpause.bind(true))
+	GlobalData.start_countdown.connect(timer_pause_unpause.bind(false))
+
+func timer_pause_unpause(state):
+	countdown_timer.paused = state
+
 func _process(delta: float) -> void:
 	var seconds_left = int(countdown_timer.time_left) % 60
 	var minutes_left = int((countdown_timer.time_left - seconds_left) / 60)

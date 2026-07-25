@@ -8,6 +8,9 @@ var input_movement_monitoring := true
 
 var encounter_identifier : String
 
+signal stop_countdown
+signal start_countdown
+
 var fade_in_rect : ColorRect
 var fade_out_rect : ColorRect
 var timer : Timer
