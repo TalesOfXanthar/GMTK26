@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ourud376xsui"
-path="res://.godot/imported/icon.svg-a5f35f111cf71f4c7c3883d3f8bc0885.ctex"
+uid="uid://dwlct1i7lr8ks"
+path="res://.godot/imported/planet.png-44f0e8e42899014fc0855261a11e6a6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visual assets/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-a5f35f111cf71f4c7c3883d3f8bc0885.ctex"]
+source_file="res://visual_assets/placeholder_sprites/planet.png"
+dest_files=["res://.godot/imported/planet.png-44f0e8e42899014fc0855261a11e6a6b.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

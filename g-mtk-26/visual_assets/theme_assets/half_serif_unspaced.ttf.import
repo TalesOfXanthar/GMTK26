@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://sldw0wv7wf8g"
-path="res://.godot/imported/half_serif_unspaced.ttf-cc86cbc25a3218165f8c3d8f7301f444.fontdata"
+path="res://.godot/imported/half_serif_unspaced.ttf-adac7c61eaedf08dc51beb952db7af7e.fontdata"
 
 [deps]
 
-source_file="res://visual assets/theme_assets/half_serif_unspaced.ttf"
-dest_files=["res://.godot/imported/half_serif_unspaced.ttf-cc86cbc25a3218165f8c3d8f7301f444.fontdata"]
+source_file="res://visual_assets/theme_assets/half_serif_unspaced.ttf"
+dest_files=["res://.godot/imported/half_serif_unspaced.ttf-adac7c61eaedf08dc51beb952db7af7e.fontdata"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt0xt4iet4l2m"
-path="res://.godot/imported/player_ship.png-81cdc4307ce11c0b2d24a920dfef976f.ctex"
+uid="uid://da0k8645ddytr"
+path="res://.godot/imported/load_button_texture.png-3de83d36e8c66b9b30df2944456d3dc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visual assets/placeholder_sprites/player_ship.png"
-dest_files=["res://.godot/imported/player_ship.png-81cdc4307ce11c0b2d24a920dfef976f.ctex"]
+source_file="res://visual_assets/placeholder_sprites/load_button_texture.png"
+dest_files=["res://.godot/imported/load_button_texture.png-3de83d36e8c66b9b30df2944456d3dc0.ctex"]
 
 [params]
 

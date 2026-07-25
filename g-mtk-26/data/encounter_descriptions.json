@@ -1,0 +1,29 @@
+{
+	"placeholder_planet": 
+		{
+			"descriptions": 
+				[
+				"Hello! This is placeholder text for placeholder planet! Wow! so cool!",
+				"A second placeholder text?? You're just getting spoiled now,",
+			],
+			"question": "These options are meaningless!",
+			"choices": 
+				{
+				"Choose this one!": 
+					{
+					"99": ["You got expected result!", "0"],
+					"1": ["You got unexpected result!", "1"],
+					},
+				"Or this one!":
+					{
+					"50": ["You got a result!", "0"],
+					"17": ["You got the other result!", "1"],
+					"33": ["You got a crazy result!", "2"],
+					},
+				"This one may or may not work.": 
+					{
+					"100": ["You got guranteed result!", "0"],
+					},
+			},
+		}
+}

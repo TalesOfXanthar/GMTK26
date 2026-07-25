@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://c041vhoynl6n4"]
+[gd_scene format=3 uid="uid://7i864jvbs2od"]
 
-[ext_resource type="Script" uid="uid://dev54ka0hrud8" path="res://scripts/text_box.gd" id="1_wscpg"]
-[ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual_assets/theme_assets/text_theme.tres" id="2_dyarx"]
+[ext_resource type="Script" uid="uid://c3l8io6cpo2mx" path="res://scripts/random_event_text_box.gd" id="1_0rv4r"]
+[ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual_assets/theme_assets/text_theme.tres" id="2_mw6y7"]
 
-[node name="Control" type="Control" unique_id=635419347 node_paths=PackedStringArray("current_label", "choice_1", "choice_2", "choice_3", "timer")]
+[node name="Control" type="Control" unique_id=635419347]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 3
 anchors_preset = 15
@@ -15,12 +15,7 @@ offset_right = -64.0
 offset_bottom = -152.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wscpg")
-current_label = NodePath("TabContainer/DescriptionLabel")
-choice_1 = NodePath("TabContainer/ScrollContainer/VBoxContainer/Choice1")
-choice_2 = NodePath("TabContainer/ScrollContainer/VBoxContainer/Choice2")
-choice_3 = NodePath("TabContainer/ScrollContainer/VBoxContainer/Choice3")
-timer = NodePath("Timer")
+script = ExtResource("1_0rv4r")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=233538955]
 z_index = -1
@@ -36,7 +31,7 @@ color = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 88.0
-theme = ExtResource("2_dyarx")
+theme = ExtResource("2_mw6y7")
 current_tab = 1
 tabs_visible = false
 
@@ -50,12 +45,12 @@ metadata/_tab_index = 0
 custom_minimum_size = Vector2(1, 1)
 custom_maximum_size = Vector2(512, 128)
 layout_mode = 2
-theme = ExtResource("2_dyarx")
+theme = ExtResource("2_mw6y7")
 
 [node name="QuestionLabel" type="RichTextLabel" parent="TabContainer/ScrollContainer/VBoxContainer" unique_id=1076653348]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
-theme = ExtResource("2_dyarx")
+theme = ExtResource("2_mw6y7")
 text = "You come across a stranded astronaut. rororo
 wow"
 fit_content = true
@@ -63,9 +58,8 @@ scroll_active = false
 visible_characters_behavior = 1
 
 [node name="Choice1" type="Button" parent="TabContainer/ScrollContainer/VBoxContainer" unique_id=836262427]
-visible = false
 layout_mode = 2
-theme = ExtResource("2_dyarx")
+theme = ExtResource("2_mw6y7")
 theme_override_colors/font_hover_color = Color(0.7835233, 0.7835233, 0.78352404, 1)
 text = "1. this is the first choice this is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choice"
 flat = true
@@ -73,24 +67,22 @@ alignment = 0
 autowrap_mode = 2
 
 [node name="Choice2" type="Button" parent="TabContainer/ScrollContainer/VBoxContainer" unique_id=737821499]
-visible = false
 layout_mode = 2
-theme = ExtResource("2_dyarx")
+theme = ExtResource("2_mw6y7")
 text = "1. this is the first choice"
 flat = true
 alignment = 0
 
 [node name="Choice3" type="Button" parent="TabContainer/ScrollContainer/VBoxContainer" unique_id=2078901006]
-visible = false
 layout_mode = 2
-theme = ExtResource("2_dyarx")
+theme = ExtResource("2_mw6y7")
 text = "1. this is the first choice"
 flat = true
 alignment = 0
 
 [node name="DescriptionLabel" type="RichTextLabel" parent="TabContainer" unique_id=567164133]
 layout_mode = 2
-theme = ExtResource("2_dyarx")
+theme = ExtResource("2_mw6y7")
 text = "Hello?weohfoewhfouhwuogfwugfuegwfuwfufhwufhfeowhfhefhwoehfoheowfho"
 visible_characters_behavior = 1
 metadata/_tab_index = 1

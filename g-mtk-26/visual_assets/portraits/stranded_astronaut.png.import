@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca1fesu8hrrh6"
-path="res://.godot/imported/test_measure.png-eb818332e52a830820d2944515566020.ctex"
+uid="uid://bpncp0kgs7ekj"
+path="res://.godot/imported/stranded_astronaut.png-ad8d6e2416d03451ca9e1699a5ec33aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visual assets/placeholder_sprites/test_measure.png"
-dest_files=["res://.godot/imported/test_measure.png-eb818332e52a830820d2944515566020.ctex"]
+source_file="res://visual_assets/portraits/stranded_astronaut.png"
+dest_files=["res://.godot/imported/stranded_astronaut.png-ad8d6e2416d03451ca9e1699a5ec33aa.ctex"]
 
 [params]
 
