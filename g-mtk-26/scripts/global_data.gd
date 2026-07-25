@@ -46,7 +46,7 @@ func fade_in():
 	fade_in_rect = get_node("/root/SceneManager/SpaceScene/FadeLayer/FadeInRect")
 	fade_in_rect.color = Color(0, 0, 0, 1)
 	fade_in_rect.show()
-	timer = get_node("/root/SceneManager/SpaceScene/FadeLayer/Timer")
+	timer = get_node("/root/SceneManager/SpaceScene/FadeLayer/FadeTimer")
 	timer.timeout.connect(fade_timeout)
 	timer.wait_time = fade_time
 	fade_in_active = true
@@ -57,7 +57,7 @@ func fade_out():
 	fade_out_rect = get_node("/root/SceneManager/SpaceScene/FadeLayer/FadeOutRect")
 	fade_out_rect.color = Color(0, 0, 0, 0)
 	fade_out_rect.show()
-	timer = get_node("/root/SceneManager/SpaceScene/FadeLayer/Timer")
+	timer = get_node("/root/SceneManager/SpaceScene/FadeLayer/FadeTimer")
 	timer.timeout.connect(fade_timeout)
 	timer.wait_time = fade_time
 	fade_out_active = true

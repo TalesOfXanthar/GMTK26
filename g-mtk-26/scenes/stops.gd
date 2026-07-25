@@ -8,6 +8,12 @@ var stop_id : String
 @export var gui_canvas_layer : CanvasLayer
 @export var select_sfx : AudioStreamPlayer
 
+var label : Label
+@export var label_timer: Timer 
+var label_fade_time := 0.5
+var fade_out_active := false
+var fade_in_active := false
+var label_deleted := false
 
 
 
@@ -44,8 +50,15 @@ func _ready() -> void:
 
 
 func stop_area_entered(useless_var, encounter_id):
+	label_deleted = false
 	stop_id = encounter_id
-	get_node(area_dict[stop_id]["node_name"]).get_child(2).show()
+	label = get_node(area_dict[stop_id]["node_name"]).get_child(2)
+	label.modulate = Color(1, 1, 1, 0)
+	label.show()
+	label_timer.wait_time = label_fade_time
+	fade_in_active = true
+	fade_out_active = false
+	label_timer.start()
 	
 	input_enter_monitoring = true
 
@@ -55,10 +68,24 @@ func _process(delta: float) -> void:
 		GlobalData.fade_out()
 		GlobalData.fade_out_completed.connect(start_interaction)
 		select_sfx.play()
+	if fade_in_active == true && label_deleted == false:
+		var percent_completed = (label_timer.time_left / label_timer.wait_time)
+		label.modulate = Color(1, 1, 1, 1.0 - percent_completed)
+		if label.modulate == Color(1, 1, 1, 1):
+			fade_in_active = false
+	if fade_out_active == true && label_deleted == false:
+		var percent_completed = (label_timer.time_left / label_timer.wait_time)
+		label.modulate = Color(1, 1, 1, percent_completed)
+		if label.modulate == Color(1, 1, 1, 0):
+			fade_out_active = false
 
 func stop_area_exited(useless_var, encounter_id):
 	stop_id = encounter_id
-	get_node(area_dict[stop_id]["node_name"]).get_child(2).hide()
+	label = get_node(area_dict[stop_id]["node_name"]).get_child(2)
+	label.modulate = Color(1, 1, 1, 1)
+	label_timer.wait_time = label_fade_time
+	fade_out_active = true
+	label_timer.start()
 
 
 func start_interaction():
@@ -73,3 +100,4 @@ func start_interaction():
 		input_enter_monitoring = false
 	if area_dict[stop_id]["repeat_state"] == 2:
 		get_node(area_dict[stop_id]["node_name"]).queue_free()
+		label_deleted = true

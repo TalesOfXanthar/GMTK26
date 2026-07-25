@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dwlct1i7lr8ks" path="res://visual_assets/placeholder_sprites/planet.png" id="6_uxmaj"]
 [ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual_assets/theme_assets/text_theme.tres" id="7_6scvu"]
 [ext_resource type="Texture2D" uid="uid://b7g1v21rb36x2" path="res://visual_assets/gui_elements/enter_box.png" id="8_mxyie"]
+[ext_resource type="Script" uid="uid://dnug336amiy5l" path="res://scenes/giant_countdown.gd" id="9_i2e4q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44uij"]
 radius = 16.0
@@ -41,11 +42,12 @@ texture_filter = 1
 script = ExtResource("3_vu1g8")
 player = NodePath("../CharacterBody2D")
 
-[node name="Stops" type="Node2D" parent="CanvasLayer/Space" unique_id=1228552937 node_paths=PackedStringArray("gui_canvas_layer", "select_sfx", "placeholder_planet")]
+[node name="Stops" type="Node2D" parent="CanvasLayer/Space" unique_id=1228552937 node_paths=PackedStringArray("gui_canvas_layer", "select_sfx", "label_timer", "placeholder_planet")]
 script = ExtResource("1_4c1q5")
 interaction_scene = ExtResource("2_jsx7o")
 gui_canvas_layer = NodePath("../../../GuiCanvasLayer")
 select_sfx = NodePath("../../../SelectSFX")
+label_timer = NodePath("../LabelTimer")
 placeholder_planet = NodePath("PlaceholderPlanet")
 
 [node name="PlaceholderPlanet" type="Area2D" parent="CanvasLayer/Space/Stops" unique_id=1623959098]
@@ -86,11 +88,33 @@ position = Vector2(48, 13.999987)
 scale = Vector2(1, 0.999999)
 texture = ExtResource("8_mxyie")
 
+[node name="LabelTimer" type="Timer" parent="CanvasLayer/Space" unique_id=1118292039]
+one_shot = true
+
 [node name="GuiCanvasLayer" type="CanvasLayer" parent="." unique_id=6119920]
 layer = 2
 
+[node name="CountdownLayer" type="CanvasLayer" parent="." unique_id=1682073003]
+layer = 2
+
+[node name="GiantCountdown" type="Label" parent="CountdownLayer" unique_id=476502540 node_paths=PackedStringArray("countdown_timer")]
+offset_left = 168.0
+offset_top = 8.0
+offset_right = 218.0
+offset_bottom = 31.0
+theme = ExtResource("7_6scvu")
+text = "10:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_i2e4q")
+countdown_timer = NodePath("../CountdownTimer")
+
+[node name="CountdownTimer" type="Timer" parent="CountdownLayer" unique_id=487332361]
+wait_time = 600.0
+autostart = true
+
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=1323433106]
-layer = 3
+layer = 4
 
 [node name="FadeInRect" type="ColorRect" parent="FadeLayer" unique_id=1218419110]
 visible = false
@@ -104,7 +128,7 @@ offset_right = 384.0
 offset_bottom = 216.0
 color = Color(0, 0, 0, 1)
 
-[node name="Timer" type="Timer" parent="FadeLayer" unique_id=438409416]
+[node name="FadeTimer" type="Timer" parent="FadeLayer" unique_id=438409416]
 one_shot = true
 
 [node name="SelectSFX" type="AudioStreamPlayer" parent="." unique_id=439747123]
