@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://djqf6p1tkkgcj"]
 
-[ext_resource type="Script" uid="uid://bqk5pgrej133b" path="res://scenes/space.gd" id="1_4c1q5"]
+[ext_resource type="Script" uid="uid://bqk5pgrej133b" path="res://scenes/stops.gd" id="1_4c1q5"]
 [ext_resource type="Texture2D" uid="uid://drrrlne8jnbs3" path="res://visual_assets/placeholder_sprites/space.png" id="1_ma5ay"]
 [ext_resource type="PackedScene" uid="uid://chajvj4vq38bf" path="res://scenes/player_ship.tscn" id="1_rcdtf"]
 [ext_resource type="PackedScene" uid="uid://bjjbquu5jn3df" path="res://scenes/interaction_scene.tscn" id="2_jsx7o"]
 [ext_resource type="Script" uid="uid://bj7or4dpms8n6" path="res://scripts/camera_2d.gd" id="3_vu1g8"]
+[ext_resource type="AudioStream" uid="uid://biwkkgh817yje" path="res://audio/sound_effects/SFX_SELECT.wav" id="6_fwyvl"]
 [ext_resource type="Texture2D" uid="uid://dwlct1i7lr8ks" path="res://visual_assets/placeholder_sprites/planet.png" id="6_uxmaj"]
+[ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual_assets/theme_assets/text_theme.tres" id="7_6scvu"]
+[ext_resource type="Texture2D" uid="uid://b7g1v21rb36x2" path="res://visual_assets/gui_elements/enter_box.png" id="8_mxyie"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44uij"]
 radius = 16.0
@@ -22,11 +25,7 @@ color = Color(0, 0, 0, 1)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1102736199]
 follow_viewport_enabled = true
 
-[node name="Space" type="Node2D" parent="CanvasLayer" unique_id=769989898 node_paths=PackedStringArray("gui_canvas_layer", "placeholder_planet")]
-script = ExtResource("1_4c1q5")
-interaction_scene = ExtResource("2_jsx7o")
-gui_canvas_layer = NodePath("../../GuiCanvasLayer")
-placeholder_planet = NodePath("Stops/PlaceholderPlanet")
+[node name="Space" type="Node2D" parent="CanvasLayer" unique_id=769989898]
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Space" unique_id=431705974]
 position = Vector2(688, 600)
@@ -42,7 +41,12 @@ texture_filter = 1
 script = ExtResource("3_vu1g8")
 player = NodePath("../CharacterBody2D")
 
-[node name="Stops" type="Node2D" parent="CanvasLayer/Space" unique_id=1228552937]
+[node name="Stops" type="Node2D" parent="CanvasLayer/Space" unique_id=1228552937 node_paths=PackedStringArray("gui_canvas_layer", "select_sfx", "placeholder_planet")]
+script = ExtResource("1_4c1q5")
+interaction_scene = ExtResource("2_jsx7o")
+gui_canvas_layer = NodePath("../../../GuiCanvasLayer")
+select_sfx = NodePath("../../../SelectSFX")
+placeholder_planet = NodePath("PlaceholderPlanet")
 
 [node name="PlaceholderPlanet" type="Area2D" parent="CanvasLayer/Space/Stops" unique_id=1623959098]
 position = Vector2(1184, 672)
@@ -57,5 +61,51 @@ texture = ExtResource("6_uxmaj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Space/Stops/PlaceholderPlanet" unique_id=818417707]
 shape = SubResource("CircleShape2D_44uij")
 
+[node name="Label" type="Label" parent="CanvasLayer/Space/Stops/PlaceholderPlanet" unique_id=358972302]
+visible = false
+z_index = 1
+offset_left = -32.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = -32.0
+theme = ExtResource("7_6scvu")
+text = "Placeholder Planet
+[Enter]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer/Space/Stops/PlaceholderPlanet/Label" unique_id=793548008]
+z_index = -1
+points = PackedVector2Array(48, 26, 41, 43)
+width = 1.0
+default_color = Color(0.09803922, 0.29803923, 0.09803922, 1)
+
+[node name="EnterBox" type="Sprite2D" parent="CanvasLayer/Space/Stops/PlaceholderPlanet/Label" unique_id=347649189]
+z_index = -1
+position = Vector2(48, 13.999987)
+scale = Vector2(1, 0.999999)
+texture = ExtResource("8_mxyie")
+
 [node name="GuiCanvasLayer" type="CanvasLayer" parent="." unique_id=6119920]
 layer = 2
+
+[node name="FadeLayer" type="CanvasLayer" parent="." unique_id=1323433106]
+layer = 3
+
+[node name="FadeInRect" type="ColorRect" parent="FadeLayer" unique_id=1218419110]
+visible = false
+offset_right = 384.0
+offset_bottom = 216.0
+color = Color(0, 0, 0, 1)
+
+[node name="FadeOutRect" type="ColorRect" parent="FadeLayer" unique_id=126480790]
+visible = false
+offset_right = 384.0
+offset_bottom = 216.0
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="FadeLayer" unique_id=438409416]
+one_shot = true
+
+[node name="SelectSFX" type="AudioStreamPlayer" parent="." unique_id=439747123]
+stream = ExtResource("6_fwyvl")

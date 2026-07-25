@@ -2,6 +2,9 @@ extends Control
 
 signal end_dialogue
 
+
+@export var dialogue_progress_sfx : AudioStreamPlayer
+
 @export var current_label : RichTextLabel
 @export var choice_1 : Button
 @export var choice_2 : Button
@@ -17,6 +20,8 @@ var end_result := false
 
 var encounter_id : String
 var descriptions_left := 0
+
+@export var encounter_sprite : Sprite2D
 
 var text_path = "res://data/encounter_descriptions.json"
 var text_json_string = FileAccess.get_file_as_string(text_path)
@@ -74,7 +79,10 @@ func _ready() -> void:
 	choice_3.pressed.connect(choice_selected.bind(3))
 	
 	encounter_id = GlobalData.encounter_identifier
-	#Subtract one here because you are immidietly instating a description.
+	
+	if "sprite_path" in text_dictionary[encounter_id].keys():
+		encounter_sprite.texture = load(text_dictionary[encounter_id]["sprite_path"])
+	
 	descriptions_left = text_dictionary[encounter_id]["descriptions"].size()
 	
 	shift_to_next_description()
@@ -118,10 +126,14 @@ func _process(delta: float) -> void:
 		if current_label.visible_ratio == 1.0 && current_label != get_node("TabContainer/ScrollContainer/VBoxContainer/QuestionLabel"):
 				if descriptions_left == 0:
 					if end_result == false:
+						dialogue_progress_sfx.play()
 						shift_to_question()
 					else:
+						GlobalData.input_movement_monitoring = true
+						set_process_input(false)
 						end_dialogue.emit()
 				else:
+					dialogue_progress_sfx.play()
 					shift_to_next_description()
 		elif current_label.visible_ratio != 1.0:
 			timer.stop()
@@ -138,6 +150,7 @@ func _on_mouse_exited() -> void:
 	mouse_in_body = false
 	
 func choice_selected(choice_number):
+	dialogue_progress_sfx.play()
 	end_result = true
 	current_label = get_node("TabContainer/DescriptionLabel")
 	var selected_choice_key = text_dictionary[encounter_id]["choices"].keys()[choice_number - 1]
@@ -156,7 +169,7 @@ func random_chance_calc(choice_dict : Dictionary):
 	var outcome_key = choice_dict.keys()[chance_array.find(chance_array.max())]
 	
 	var outcome_event = choice_dict[outcome_key][1]
-	
+	GlobalData.event_triggered.emit(outcome_event)
 	
 	var outcome_text = choice_dict[outcome_key][0]
 	return outcome_text

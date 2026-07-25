@@ -1,6 +1,7 @@
 {
 	"placeholder_planet": 
 		{
+			"sprite_path": "res://visual_assets/portraits/stranded_astronaut.png",
 			"descriptions": 
 				[
 				"Hello! This is placeholder text for placeholder planet! Wow! so cool!",

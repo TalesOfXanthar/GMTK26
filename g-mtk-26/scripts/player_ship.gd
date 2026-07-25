@@ -2,14 +2,17 @@ extends CharacterBody2D
 var rotation_velocity := 0.0
 var unrounded_position : Vector2
 
+
 func _ready() -> void:
 	unrounded_position = position
-
+	
 func _physics_process(delta: float) -> void:
 	var rotation_direction := 0.0
 	var movement_direction := 0.0
+	if GlobalData.input_movement_monitoring:
+		rotation_direction = Input.get_axis("rotate_counterclockwise", "rotate_clockwise")
+		movement_direction = Input.get_axis("move_backwards", "move_forward")
 	
-	rotation_direction = Input.get_axis("rotate_counterclockwise", "rotate_clockwise")
 	if rotation_direction != 0.0:	
 		rotation_velocity += lerpf(rotation_velocity, (rotation_direction*PI/360), (5.625*PI)/360)
 		rotation_velocity = clampf(rotation_velocity, -(11.25*PI)/360, (11.25*PI)/360)
@@ -17,7 +20,6 @@ func _physics_process(delta: float) -> void:
 		rotation_velocity = 0
 	rotation += rotation_velocity
 
-	movement_direction = Input.get_axis("move_backwards", "move_forward")
 	if movement_direction != 0.0:
 		var movement_vector = transform.x * movement_direction * 40
 		velocity = velocity.move_toward(movement_vector, 5)
