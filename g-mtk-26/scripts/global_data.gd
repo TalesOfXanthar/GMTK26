@@ -19,8 +19,13 @@ var fade_in_active := false
 var fade_out_active := false
 
 func _ready() -> void:
-	set_process(false)
 	
+	set_process(false)
+
+
+
+
+
 
 func _process(delta: float) -> void:
 	if fade_in_active == true:	
@@ -33,6 +38,7 @@ func _process(delta: float) -> void:
 	
 
 func fade_timeout():
+	timer.timeout.disconnect(fade_timeout)
 	if fade_in_active == true:
 		fade_in_active = false
 		set_process(false)
@@ -43,7 +49,6 @@ func fade_timeout():
 		set_process(false)
 		fade_out_rect.hide()
 		fade_in()
-		
 
 func fade_in():
 	fade_in_rect = get_node("/root/SceneManager/SpaceScene/FadeLayer/FadeInRect")

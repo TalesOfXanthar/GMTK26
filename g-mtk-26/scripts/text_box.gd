@@ -29,23 +29,14 @@ var text_dictionary : Dictionary = JSON.parse_string(text_json_string)
 
 #This declares the variables and sets default text for all text options
 var current_text = "You come across a stranded astronaut. For a second, the astronaut seems lifeless, before tapping your ships glass."
-var choice1Text = "dfgh"
-var choice2Text = "sdfghj"
-var choice3Text = ""
-
-#Creates the prefix for text options. Either blank or the number key you can optionaly use to select
-var mainTextPrefix = ""
-var choice1Prefix = "1. "
-var choice2Prefix = "2. "
-var choice3Prefix = "3. "
 
 var choice_2_visible := false
 var choice_3_visible := false
 
 ##Basically sets up the entire text box system. Toggle calls visibility var, node is the node you want to effect, prefix is what will always come inline before the option, text is the text in richtext format, and keypress is the shortcut to select that option
-func displayTextOption(node, prefix, text, keypress):
+func displayTextOption(node, text, keypress):
 #Function to show or hide the text box and choices. The variable name sets the state and the node is what changes
-	node.text = text + prefix
+	node.text = text
 	
 	#If choice is visible allow keyboard shortcut
 		#if (Input.is_action_just_pressed(keypress)):
@@ -57,14 +48,14 @@ func change_all_text():
 	#Calls function, see usage above
 	var choices_list : Array = text_dictionary[encounter_id]["choices"].keys()
 	
-	displayTextOption(current_label, current_text, mainTextPrefix, "blank_input")
-	displayTextOption(choice_1, choices_list[0], choice1Prefix, "choice_1")
+	displayTextOption(current_label, current_text, "blank_input")
+	displayTextOption(choice_1, choices_list[0], "choice_1")
 	if choices_list.size() >= 1:
 		choice_2_visible = true
-		displayTextOption(choice_2, choices_list[1], choice2Prefix, "choice_2")
+		displayTextOption(choice_2, choices_list[1], "choice_2")
 		if choices_list.size() >= 2:
 			choice_3_visible = true
-			displayTextOption(choice_3, choices_list[2], choice3Prefix, "choice_3")
+			displayTextOption(choice_3, choices_list[2], "choice_3")
 		else:
 			choice_2_visible = false
 	else:

@@ -1,4 +1,5 @@
 extends Node2D
+class_name Stops
 
 var input_enter_monitoring = false
 
@@ -6,7 +7,7 @@ var stop_id : String
 
 @export var interaction_scene : PackedScene
 @export var gui_canvas_layer : CanvasLayer
-@export var select_sfx : AudioStreamPlayer
+@export var encounter_sfx : AudioStreamPlayer
 
 var label : Label
 @export var label_timer: Timer 
@@ -27,7 +28,10 @@ var area_dict = {
 	"placeholder_planet": {
 		"repeat_state": 2,
 		"node_name": "PlaceholderPlanet",
-	}
+	},
+	"supernova": {
+		"repeat_state": 0,
+	},
 }
 
 # Three states of repeatability:
@@ -67,7 +71,7 @@ func _process(delta: float) -> void:
 		GlobalData.input_movement_monitoring = false
 		GlobalData.fade_out()
 		GlobalData.fade_out_completed.connect(start_interaction)
-		select_sfx.play()
+		encounter_sfx.play()
 	if fade_in_active == true && label_deleted == false:
 		var percent_completed = (label_timer.time_left / label_timer.wait_time)
 		label.modulate = Color(1, 1, 1, 1.0 - percent_completed)
