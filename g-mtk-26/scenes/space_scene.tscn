@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://dxat1uw0smbj4" path="res://audio/music/MUS_5_We Are Indeed Close_BAD.wav" id="23_2g33w"]
 [ext_resource type="AudioStream" uid="uid://5s48mk8s7y7w" path="res://audio/music/MUS_6_We Are Indeed Close_NEUTRAL.wav" id="24_muukt"]
 [ext_resource type="AudioStream" uid="uid://btcs5ahjh82y4" path="res://audio/music/MUS_7_We Are Indeed Close_GOOD.wav" id="25_6md6r"]
+[ext_resource type="Script" uid="uid://ber87bxucg3ha" path="res://scenes/item_ship_layer.gd" id="29_223mp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44uij"]
 radius = 32.0
@@ -485,5 +486,6 @@ stream = ExtResource("10_i2e4q")
 
 [node name="ItemShipLayer" type="CanvasLayer" parent="." unique_id=159420364]
 layer = 2
+script = ExtResource("29_223mp")
 
 [node name="ShipInventory" parent="ItemShipLayer" unique_id=1465073727 instance=ExtResource("15_cbu5l")]
