@@ -23,3 +23,5 @@ color = Color(0, 0, 0, 1)
 
 [node name="FadeTimer" type="Timer" parent="FadeLayer" unique_id=14446499]
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1411013119]

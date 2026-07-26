@@ -20,6 +20,14 @@
 [ext_resource type="Texture2D" uid="uid://ovpba00fdwt" path="res://visual_assets/space_sprites/signalsheet.webp" id="14_iiats"]
 [ext_resource type="PackedScene" uid="uid://bmt0eg8f70xe4" path="res://scenes/ship_inventory.tscn" id="15_cbu5l"]
 [ext_resource type="PackedScene" uid="uid://58dxgla25ysd" path="res://scenes/asteroid.tscn" id="15_ouejp"]
+[ext_resource type="AudioStream" uid="uid://1jg0cpovypcw" path="res://audio/music/MUS_4_Rest Now, Starchild.wav" id="19_1dowx"]
+[ext_resource type="Script" uid="uid://dogs1qvwcnwnf" path="res://scenes/countdown_timer.gd" id="20_clm4c"]
+[ext_resource type="AudioStream" uid="uid://dv0vs51jfftyr" path="res://audio/music/MUS_1_From The Spheres.wav" id="20_ofi2h"]
+[ext_resource type="AudioStream" uid="uid://ycg5ptkor2ip" path="res://audio/music/MUS_2_Anyone Out There.wav" id="21_xyplr"]
+[ext_resource type="AudioStream" uid="uid://djj3dh4o2vxux" path="res://audio/music/MUS_3_Infinite Mirror.wav" id="22_223mp"]
+[ext_resource type="AudioStream" uid="uid://dxat1uw0smbj4" path="res://audio/music/MUS_5_We Are Indeed Close_BAD.wav" id="23_2g33w"]
+[ext_resource type="AudioStream" uid="uid://5s48mk8s7y7w" path="res://audio/music/MUS_6_We Are Indeed Close_NEUTRAL.wav" id="24_muukt"]
+[ext_resource type="AudioStream" uid="uid://btcs5ahjh82y4" path="res://audio/music/MUS_7_We Are Indeed Close_GOOD.wav" id="25_6md6r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44uij"]
 radius = 8.0
@@ -66,6 +74,18 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_exlx6"]
+streams_count = 6
+stream_0/stream = ExtResource("20_ofi2h")
+stream_0/weight = 5.0
+stream_1/stream = ExtResource("21_xyplr")
+stream_1/weight = 5.0
+stream_2/stream = ExtResource("22_223mp")
+stream_2/weight = 5.0
+stream_3/stream = ExtResource("23_2g33w")
+stream_4/stream = ExtResource("24_muukt")
+stream_5/stream = ExtResource("25_6md6r")
 
 [node name="SpaceScene" type="Node" unique_id=1816419304]
 
@@ -397,10 +417,18 @@ interaction_scene = ExtResource("2_jsx7o")
 gui_canvas_layer = NodePath("../../GuiCanvasLayer")
 stops = NodePath("../../CanvasLayer/Space/Stops")
 
+[node name="Starchild" type="AudioStreamPlayer" parent="CountdownLayer/GiantCountdown" unique_id=1963155823]
+stream = ExtResource("19_1dowx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CountdownLayer/GiantCountdown" unique_id=664375384]
+stream = SubResource("AudioStreamRandomizer_exlx6")
+autoplay = true
+
 [node name="CountdownTimer" type="Timer" parent="CountdownLayer" unique_id=487332361]
 wait_time = 600.0
 one_shot = true
 autostart = true
+script = ExtResource("20_clm4c")
 
 [node name="EncounterSFX" type="AudioStreamPlayer" parent="." unique_id=439747123]
 stream = ExtResource("10_i2e4q")

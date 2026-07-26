@@ -12,6 +12,7 @@ func _ready() -> void:
 	GlobalData.start_countdown.connect(timer_pause_unpause.bind(false))
 	countdown_timer.timeout.connect(end_game)
 
+
 func end_game():
 	GlobalData.input_movement_monitoring = false
 	GlobalData.fade_out()
@@ -35,6 +36,11 @@ func _process(delta: float) -> void:
 	else:
 		text = str(minutes_left) + ":0" + str(seconds_left)
 	
+	if seconds_left <= 60:
+		$AudioStreamPlayer.stop()
+		$Starchild.play()
+	else:
+		pass 
 	#if minutes_left <= 5:
 	#	add_theme_font_size_override("font_size", 20)
 	if minutes_left <= 0:
