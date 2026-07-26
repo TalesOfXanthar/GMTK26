@@ -16,76 +16,15 @@ offset_bottom = -152.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0rv4r")
+text_speed = null
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=233538955]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
+[node name="DescriptionLabel" type="RichTextLabel" parent="." unique_id=567164133]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="TabContainer" type="TabContainer" parent="." unique_id=2129235128]
-layout_mode = 0
-offset_right = 256.0
-offset_bottom = 88.0
-theme = ExtResource("2_mw6y7")
-current_tab = 0
-tabs_visible = false
-
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer" unique_id=798582230]
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/ScrollContainer" unique_id=1180696259]
-custom_minimum_size = Vector2(1, 1)
-custom_maximum_size = Vector2(512, 128)
-layout_mode = 2
-theme = ExtResource("2_mw6y7")
-
-[node name="QuestionLabel" type="RichTextLabel" parent="TabContainer/ScrollContainer/VBoxContainer" unique_id=1076653348]
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 2
-theme = ExtResource("2_mw6y7")
-text = "You come across a stranded astronaut. rororo
-wow"
-fit_content = true
-scroll_active = false
-visible_characters_behavior = 1
-
-[node name="Choice1" type="Button" parent="TabContainer/ScrollContainer/VBoxContainer" unique_id=836262427]
-layout_mode = 2
-theme = ExtResource("2_mw6y7")
-theme_override_colors/font_hover_color = Color(0.7835233, 0.7835233, 0.78352404, 1)
-text = "1. this is the first choice this is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choicethis is the first choice"
-flat = true
-alignment = 0
-autowrap_mode = 2
-
-[node name="Choice2" type="Button" parent="TabContainer/ScrollContainer/VBoxContainer" unique_id=737821499]
-layout_mode = 2
-theme = ExtResource("2_mw6y7")
-text = "1. this is the first choice"
-flat = true
-alignment = 0
-
-[node name="Choice3" type="Button" parent="TabContainer/ScrollContainer/VBoxContainer" unique_id=2078901006]
-layout_mode = 2
-theme = ExtResource("2_mw6y7")
-text = "1. this is the first choice"
-flat = true
-alignment = 0
-
-[node name="DescriptionLabel" type="RichTextLabel" parent="TabContainer" unique_id=567164133]
-visible = false
-layout_mode = 2
 theme = ExtResource("2_mw6y7")
 text = "Hello?weohfoewhfouhwuogfwugfuegwfuwfufhwufhfeowhfhefhwoehfoheowfho"
 visible_characters_behavior = 1
-metadata/_tab_index = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=319439433]
 

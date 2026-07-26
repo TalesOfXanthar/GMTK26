@@ -11,10 +11,13 @@
 [ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual_assets/theme_assets/text_theme.tres" id="7_6scvu"]
 [ext_resource type="Texture2D" uid="uid://b7g1v21rb36x2" path="res://visual_assets/gui_elements/enter_box.png" id="8_mxyie"]
 [ext_resource type="Script" uid="uid://dnug336amiy5l" path="res://scripts/giant_countdown.gd" id="9_i2e4q"]
-[ext_resource type="Texture2D" uid="uid://b0ufovpo1nb1" path="res://visual_assets/stop_sprites/blue_planet.webp" id="10_bl5p1"]
+[ext_resource type="Texture2D" uid="uid://b0ufovpo1nb1" path="res://visual_assets/space_sprites/blue_planet.webp" id="10_bl5p1"]
 [ext_resource type="AudioStream" uid="uid://d10ey8efb2djc" path="res://audio/sound_effects/SFX_ENCOUNTER.wav" id="10_i2e4q"]
-[ext_resource type="Texture2D" uid="uid://dyppjv74qxjhs" path="res://visual_assets/stop_sprites/red_cat.webp" id="11_rbo46"]
+[ext_resource type="Texture2D" uid="uid://dyppjv74qxjhs" path="res://visual_assets/space_sprites/red_cat.webp" id="11_rbo46"]
+[ext_resource type="Texture2D" uid="uid://cu82lgj77fpwn" path="res://visual_assets/space_sprites/Shipfleet.webp" id="13_kt33t"]
+[ext_resource type="Script" uid="uid://d0xt0mc1kbb3y" path="res://scenes/asteroid_spawner.gd" id="14_1wwvg"]
 [ext_resource type="PackedScene" uid="uid://bmt0eg8f70xe4" path="res://scenes/ship_inventory.tscn" id="15_cbu5l"]
+[ext_resource type="PackedScene" uid="uid://58dxgla25ysd" path="res://scenes/asteroid.tscn" id="15_ouejp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44uij"]
 radius = 20.024984
@@ -25,6 +28,7 @@ radius = 20.024984
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_7qi47")
+metadata/_edit_lock_ = true
 
 [node name="ResourceShipLayer" type="CanvasLayer" parent="." unique_id=941754091]
 layer = 2
@@ -45,14 +49,14 @@ texture = ExtResource("1_ma5ay")
 [node name="CharacterBody2D" parent="CanvasLayer/Space" unique_id=1661900380 instance=ExtResource("1_rcdtf")]
 z_index = 1
 texture_filter = 1
-position = Vector2(2000, 2000)
+position = Vector2(3088, 1976)
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/Space" unique_id=1144326815 node_paths=PackedStringArray("player")]
 texture_filter = 1
 script = ExtResource("3_vu1g8")
 player = NodePath("../CharacterBody2D")
 
-[node name="Stops" type="Node2D" parent="CanvasLayer/Space" unique_id=1228552937 node_paths=PackedStringArray("gui_canvas_layer", "encounter_sfx", "label_timer", "placeholder_planet", "blue_planet", "red_cat")]
+[node name="Stops" type="Node2D" parent="CanvasLayer/Space" unique_id=1228552937 node_paths=PackedStringArray("gui_canvas_layer", "encounter_sfx", "label_timer", "placeholder_planet", "blue_planet", "red_cat", "ghost_fleet")]
 script = ExtResource("1_4c1q5")
 interaction_scene = ExtResource("2_jsx7o")
 gui_canvas_layer = NodePath("../../../GuiCanvasLayer")
@@ -61,6 +65,7 @@ label_timer = NodePath("../LabelTimer")
 placeholder_planet = NodePath("PlaceholderPlanet")
 blue_planet = NodePath("BluePlanet")
 red_cat = NodePath("RedCat")
+ghost_fleet = NodePath("GhostFleet")
 
 [node name="PlaceholderPlanet" type="Area2D" parent="CanvasLayer/Space/Stops" unique_id=1623959098]
 visible = false
@@ -182,8 +187,106 @@ position = Vector2(48, 13.999987)
 scale = Vector2(1, 0.999999)
 texture = ExtResource("8_mxyie")
 
+[node name="GhostFleet" type="Area2D" parent="CanvasLayer/Space/Stops" unique_id=938174679]
+position = Vector2(2472, 2064)
+collision_layer = 2
+collision_mask = 2
+priority = 1
+
+[node name="Planet" type="Sprite2D" parent="CanvasLayer/Space/Stops/GhostFleet" unique_id=1314292141]
+position = Vector2(936, -8)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_kt33t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Space/Stops/GhostFleet" unique_id=755281971]
+position = Vector2(936, -8)
+shape = SubResource("CircleShape2D_44uij")
+
+[node name="Label" type="Label" parent="CanvasLayer/Space/Stops/GhostFleet" unique_id=2015915065]
+visible = false
+z_index = 1
+offset_left = 904.0
+offset_top = -72.0
+offset_right = 1000.0
+offset_bottom = -40.0
+theme = ExtResource("7_6scvu")
+text = "Fleet of Still Ships
+[Enter]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer/Space/Stops/GhostFleet/Label" unique_id=1659761399]
+z_index = -1
+z_as_relative = false
+points = PackedVector2Array(48, 26, 32, 48)
+width = 1.0
+default_color = Color(0.09803922, 0.29803923, 0.09803922, 1)
+
+[node name="EnterBox" type="Sprite2D" parent="CanvasLayer/Space/Stops/GhostFleet/Label" unique_id=176467385]
+z_index = -1
+position = Vector2(48, 13.999987)
+scale = Vector2(1, 0.999999)
+texture = ExtResource("8_mxyie")
+
+[node name="GhostFleet2" type="Area2D" parent="CanvasLayer/Space/Stops" unique_id=1550154143]
+position = Vector2(2472, 2064)
+collision_layer = 2
+collision_mask = 2
+priority = 1
+
+[node name="Planet" type="Sprite2D" parent="CanvasLayer/Space/Stops/GhostFleet2" unique_id=2089365414]
+position = Vector2(936, -8)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_kt33t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Space/Stops/GhostFleet2" unique_id=752544989]
+position = Vector2(936, -8)
+shape = SubResource("CircleShape2D_44uij")
+
+[node name="Label" type="Label" parent="CanvasLayer/Space/Stops/GhostFleet2" unique_id=1135385386]
+visible = false
+z_index = 1
+offset_left = 904.0
+offset_top = -72.0
+offset_right = 1000.0
+offset_bottom = -40.0
+theme = ExtResource("7_6scvu")
+text = "Fleet of Still Ships
+[Enter]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer/Space/Stops/GhostFleet2/Label" unique_id=1593421440]
+z_index = -1
+z_as_relative = false
+points = PackedVector2Array(48, 26, 32, 48)
+width = 1.0
+default_color = Color(0.09803922, 0.29803923, 0.09803922, 1)
+
+[node name="EnterBox" type="Sprite2D" parent="CanvasLayer/Space/Stops/GhostFleet2/Label" unique_id=541484247]
+z_index = -1
+position = Vector2(48, 13.999987)
+scale = Vector2(1, 0.999999)
+texture = ExtResource("8_mxyie")
+
 [node name="LabelTimer" type="Timer" parent="CanvasLayer/Space" unique_id=1118292039]
 one_shot = true
+
+[node name="AsteroidSpawner" type="Node2D" parent="CanvasLayer/Space" unique_id=688985137 node_paths=PackedStringArray("belt_1_timer", "belt_2_timer", "belt_3_timer")]
+script = ExtResource("14_1wwvg")
+asteroid_scene = ExtResource("15_ouejp")
+belt_1_timer = NodePath("Asteroid")
+belt_2_timer = NodePath("Asteroid2")
+belt_3_timer = NodePath("Asteroid3")
+
+[node name="Asteroid" type="Timer" parent="CanvasLayer/Space/AsteroidSpawner" unique_id=1073934943]
+autostart = true
+
+[node name="Asteroid2" type="Timer" parent="CanvasLayer/Space/AsteroidSpawner" unique_id=1797573434]
+autostart = true
+
+[node name="Asteroid3" type="Timer" parent="CanvasLayer/Space/AsteroidSpawner" unique_id=244398684]
+autostart = true
 
 [node name="GuiCanvasLayer" type="CanvasLayer" parent="." unique_id=6119920]
 layer = 3

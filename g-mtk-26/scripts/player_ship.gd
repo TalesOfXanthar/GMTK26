@@ -19,8 +19,8 @@ func _physics_process(delta: float) -> void:
 		
 		GlobalData.engine_overheat += 0.002
 		for item in GlobalData.inventory:
-			if item.keys()[0] == "fuel":
-				item["fuel"] -= 0.002
+			if item.keys()[0] == "fuel_canister":
+				item["fuel_canister"] -= 0.002
 				break
 	else:
 		rotation_velocity = 0
@@ -32,8 +32,8 @@ func _physics_process(delta: float) -> void:
 		
 		GlobalData.engine_overheat += 0.002
 		for item in GlobalData.inventory:
-			if item.keys()[0] == "fuel":
-				item["fuel"] -= 0.002
+			if item.keys()[0] == "fuel_canister":
+				item["fuel_canister"] -= 0.002
 				break
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, 1)

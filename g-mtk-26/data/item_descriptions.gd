@@ -8,6 +8,7 @@ var item_desc := {
 	},
 	"empty": {
 		"sprite": "res://visual_assets/item_sprites/empty.png",
+		"sprite_damaged": "res://visual_assets/item_sprites/damaged_empty.png",
 		"moveable" : false,
 		"template": {"empty":{"damaged":false}}
 	},
@@ -21,6 +22,7 @@ var item_desc := {
 	},
 	"thruster": {
 		"sprite": "res://visual_assets/item_sprites/booster.png",
+		"sprite_damaged": "res://visual_assets/item_sprites/damaged_booster.png",
 		"moveable" : true,
 		"tags": [
 			
@@ -33,7 +35,7 @@ var item_desc := {
 		"tags": [
 			
 		],
-		"template": {"repair_scrap":{"damaged": false}}
+		"template": {"repair_scrap":":)"}
 	},
 }
 

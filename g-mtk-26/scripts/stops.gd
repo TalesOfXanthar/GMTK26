@@ -26,6 +26,7 @@ var label_deleted := false
 @export var placeholder_planet : Area2D
 @export var blue_planet : Area2D
 @export var red_cat : Area2D
+@export var ghost_fleet : Area2D
 
 var area_dict = {
 	"placeholder_planet": {
@@ -42,6 +43,10 @@ var area_dict = {
 	"red_cat": {
 		"repeat_state": 0,
 		"node_name": "RedCat"
+	},
+	"ghost_fleet": {
+		"repeat_state": 1,
+		"node_name": "GhostFleet"
 	}
 }
 
@@ -57,7 +62,8 @@ func _ready() -> void:
 	blue_planet.body_exited.connect(stop_area_exited.bind("blue_planet"))
 	red_cat.body_entered.connect(stop_area_entered.bind("red_cat"))
 	red_cat.body_exited.connect(stop_area_exited.bind("red_cat"))
-
+	ghost_fleet.body_entered.connect(stop_area_entered.bind("ghost_fleet"))
+	ghost_fleet.body_exited.connect(stop_area_exited.bind("ghost_fleet"))
 
 
 
@@ -81,12 +87,14 @@ func stop_area_entered(useless_var, encounter_id):
 	
 	input_enter_monitoring = true
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("enter") && GlobalData.input_movement_monitoring == true:
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("enter") && input_enter_monitoring == true:
 		GlobalData.input_movement_monitoring = false
 		GlobalData.fade_out()
 		GlobalData.fade_out_completed.connect(start_interaction)
 		encounter_sfx.play()
+
+func _process(delta: float) -> void:
 	if fade_in_active == true && label_deleted == false:
 		var percent_completed = (label_timer.time_left / label_timer.wait_time)
 		label.modulate = Color(1, 1, 1, 1.0 - percent_completed)
@@ -115,6 +123,7 @@ func start_interaction():
 	
 	if area_dict[stop_id]["repeat_state"] == 1:
 		get_node(area_dict[stop_id]["node_name"]).body_entered.disconnect(stop_area_entered)
+		label.hide()
 		input_enter_monitoring = false
 	if area_dict[stop_id]["repeat_state"] == 2:
 		get_node(area_dict[stop_id]["node_name"]).queue_free()

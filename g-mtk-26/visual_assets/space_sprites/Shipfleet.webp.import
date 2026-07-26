@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0ufovpo1nb1"
-path="res://.godot/imported/blue_planet.webp-01acee4b2e02771db6ad430377b6d75b.ctex"
+uid="uid://cu82lgj77fpwn"
+path="res://.godot/imported/Shipfleet.webp-fbf8e59e44177828a20dbb948f161dc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visual_assets/stop_sprites/blue_planet.webp"
-dest_files=["res://.godot/imported/blue_planet.webp-01acee4b2e02771db6ad430377b6d75b.ctex"]
+source_file="res://visual_assets/space_sprites/Shipfleet.webp"
+dest_files=["res://.godot/imported/Shipfleet.webp-fbf8e59e44177828a20dbb948f161dc4.ctex"]
 
 [params]
 

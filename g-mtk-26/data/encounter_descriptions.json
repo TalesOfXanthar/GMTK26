@@ -1,32 +1,4 @@
 {
-	"placeholder_planet": 
-		{
-			"sprite_path": "res://visual_assets/encounters/stranded_astronaut.png",
-			"descriptions": 
-				[
-				"Hello! This is placeholder text for placeholder planet! Wow! so cool!",
-				"A second placeholder text?? You're just getting spoiled now,",
-			],
-			"question": "These options are meaningless!",
-			"choices": 
-				{
-				"1. Choose this one!": 
-					{
-					"99": ["You got expected result!", "nothing"],
-					"1": ["You got unexpected result!", "nothing"],
-					},
-				"2. Or this one!":
-					{
-					"50": ["You got a result!", "nothing"],
-					"17": ["You got the other result!", "nothing"],
-					"33": ["You got a crazy result!", "nothing"],
-					},
-				"3. This one may or may not work.": 
-					{
-					"100": ["You got guranteed result!", "nothing"],
-					},
-			},
-		},
 	"supernova": 
 		{
 			"sprite_path": "res://visual_assets/encounters/supernova.png",
@@ -65,6 +37,83 @@
 				"1. Leave": 
 					{
 					"1": ["You left the planet.", "reset_heat"],
+					},
+			},
+		},
+	"red_cat":
+		{
+			"sprite_path": "res://visual_assets/encounters/cat_mask.png",
+			"descriptions": 
+				[
+				"While you stop over the planet, a radio transmission comes through your PDA.",
+				"An unfamiliar feline creature in a space suit stares back at you through the video feed, speaking in its foreign dialect.",
+			],
+			"question": "What will you do?",
+			"choices": 
+				{
+				"1. Attempt to translate": 
+					{
+					"0.99": ["You try to interpret the high pitched cries and low growls the creature throws at you, but to no avail. Disheartened and short on time, you disconnect from the frequency and leave the creature.", "reset_heat"],
+					"0.01": ["Meow meow meow meow meow meow meow, meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow.", "reset_heat"],
+					},
+				"2. Disconnect and leave": 
+					{
+					"1": ["The harsh tones of the big cat are cut as you change radio frequencies and engage your thrusters, not even attempting to understand what they are saying.", "reset_heat"],
+					},
+			},
+			"choices_translator": 
+				{
+				"1. Attempt to translate": 
+					{
+					"1": ["Using the translator you were given earlier, you are easily able to understand the language of the creature staring expectantly at you. They give a set of coordinates and somehow you feel strongly compelled to rescue them. They come bearing a gift. [Thruster Added]", "reset_heat_thruster"],
+					},
+				"2. Disconnect and leave": 
+					{
+					"1": ["The harsh tones of the big cat are cut as you change radio frequencies and engage your thrusters, not even attempting to understand what they are saying.", "reset_heat"],
+					},
+			},
+		},
+	"ghost_fleet":
+		{
+			"sprite_path": "res://visual_assets/encounters/ghost_fleet.png",
+			"descriptions": 
+				[
+				"Many abandoned ships sit idly before you.",
+				"There could be plenty of useful spare parts in those ships, though navigating through them would not be easy.",
+			],
+			"question": "What will you do?",
+			"choices": 
+				{
+				"1. Scavenge for parts": 
+					{
+					"0.5": ["The ships are full of salvageable resources, but no trace of the people they belonged to. [Fuel - 1, Repair Scrap Added]", "loss_fuel_gain_scrap"],
+					"0.5": ["Despite your best efforts, anything aboard the ships you might have found useful was destroyed. Not wanting to encounter whatever did this, you quickly leave. [Fuel - 1]", "lose_fuel_small"],
+					},
+				"2. Ignore the ships": 
+					{
+					"1": ["Something about those ships sends a shiver down your spine. You let your engine cool and promptly leave.", "nothing"],
+					},
+			},
+		},
+	"robot":
+		{
+			"sprite_path": "res://visual_assets/encounters/robot.png",
+			"descriptions": 
+				[
+				"A lone satellite drifts past your ship pulling an inactive maintenance robot along by its tether.", 
+				"You could probably reach it, but it seems to be unpredictably changing trajectory periodically.",
+				],
+			"question": "What will you do?",
+			"choices": 
+				{
+				"1. Recover the bot": 
+					{
+					"0.5": ["One of the satellite thrusters unexpectedly fires, propelling it towards your hull. It glances off leaving some damage, but you are able to grab the robot. Sadly, it’s unoperational and you are forced to scrap it for parts. [Fuel - 1, Ship Damage, Repair Scrap Added]", "lose_fuel_gain_scrap_damage"],
+					"0.5": ["Thanks to some quick maneuvering you narrowly avoid hitting the satellite and are barely able to grab the robot, but unable to get it in working order, you are forced to scrap it. [Fuel - 2, Repair Scrap Added]", "lose_fuel_medium_add_scrap"],
+					},
+				"2. Ignore the satellite and robot": 
+					{
+					"0.5": ["You attempt to pull away from the strange satellite, but it quickly changes trajectory as you are coasting beside it and you are unable to avoid it. [Ship Damage]", "damage"],
 					},
 			},
 		},

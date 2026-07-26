@@ -1,6 +1,7 @@
 extends Control
 class_name Item
 
+var is_damaged := false
 
 ## The INDEX number to retrive the item from the list. (Starts from 0)
 @export var index_number : int
@@ -30,11 +31,10 @@ func _ready() -> void:
 	get_item_properties()
 
 func _input(event: InputEvent) -> void:
-	if mouse_hovering == true:	
+	if mouse_hovering == true && moveable:	
 		if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 			
 			GlobalData.item_attached = GlobalData.inventory[index_number].duplicate_deep()
-			print("1")
 			
 			
 			GlobalData.is_item_attached = true
@@ -43,16 +43,28 @@ func _input(event: InputEvent) -> void:
 			
 			GlobalData.inventory[index_number] = ItemDescriptions.item_desc["empty"]["template"]
 			get_item_properties()
-			print("2")
 			
 			is_the_item_hovering_over_others = true
 			GlobalData.confirmed_took_item = false
 
 func get_item_properties():
 	item_type = GlobalData.inventory[index_number].keys()[0]
+	if GlobalData.inventory[index_number][item_type] is Dictionary:
+		if GlobalData.inventory[index_number][item_type].keys()[0] == "damaged":
+			if GlobalData.inventory[index_number][item_type]["damaged"] == true:
+				is_damaged = true
+			else:
+				is_damaged = false
+		else:
+			is_damaged = false
+	else:
+		is_damaged = false
 	if item_type == "locked":
 		rect.visible = false
-	item_sprite.texture = load(ItemDescriptions.item_desc[item_type]["sprite"])
+	if is_damaged:	
+		item_sprite.texture = load(ItemDescriptions.item_desc[item_type]["sprite_damaged"])
+	else:
+		item_sprite.texture = load(ItemDescriptions.item_desc[item_type]["sprite"])
 	moveable = ItemDescriptions.item_desc[item_type]["moveable"]
 	
 func mouse_entered():
@@ -66,15 +78,19 @@ func mouse_exited():
 
 func dropped_item_was_called():
 	if mouse_hovering == true:
-		is_the_item_hovering_over_others = false
-		GlobalData.inventory[index_number] = GlobalData.item_attached.duplicate_deep()
-		print("5")
+		if GlobalData.repair_item:
+			GlobalData.inventory[index_number][item_type]["damaged"] = false
+		elif item_type == "empty" && is_damaged:	
+			pass
+		else:	
+			is_the_item_hovering_over_others = false
+			GlobalData.inventory[index_number] = GlobalData.item_attached.duplicate_deep()
 	elif is_the_item_hovering_over_others == true:
 		is_the_item_hovering_over_others = false
-		if GlobalData.failed_to_find_item == true:
+		if GlobalData.repair_item:
+			GlobalData.inventory[index_number] = ItemDescriptions.item_desc["empty"]["template"]
+		elif GlobalData.failed_to_find_item == true:
 			GlobalData.inventory[index_number] = GlobalData.item_attached.duplicate_deep()
-			print("failed_to_find")
 		else:
 			GlobalData.inventory[index_number] = GlobalData.item_hovering_over.duplicate()
-		print("6")
 	get_item_properties()

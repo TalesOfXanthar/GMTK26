@@ -2,8 +2,11 @@ extends Node
 
 @export var space_scene = preload("res://scenes/space_scene.tscn")
 
+var ship_inv : ShipInventory
+
 func _ready() -> void:
 	GlobalData.event_triggered.connect(event)
+	ship_inv = get_node("/root/SceneManager/SpaceScene/ItemShipLayer/ShipInventory")
 
 func event(event_name):
 	var event_callable := Callable.create(self, event_name)
@@ -24,3 +27,7 @@ func restart_afterfade():
 	
 func reset_heat():
 	GlobalData.engine_overheat = 0.0
+
+func reset_heat_thruster():
+	GlobalData.engine_overheat = 0.0
+	ship_inv.add_item("thruster")

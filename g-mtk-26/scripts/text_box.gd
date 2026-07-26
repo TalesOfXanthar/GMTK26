@@ -47,6 +47,8 @@ func displayTextOption(node, text, keypress):
 func change_all_text():
 	#Calls function, see usage above
 	var choices_list : Array = text_dictionary[encounter_id]["choices"].keys()
+	#if encounter_id == "red_cat" && 
+	
 	
 	displayTextOption(current_label, current_text, "blank_input")
 	displayTextOption(choice_1, choices_list[0], "choice_1")
@@ -57,7 +59,7 @@ func change_all_text():
 			choice_3_visible = true
 			displayTextOption(choice_3, choices_list[2], "choice_3")
 		else:
-			choice_2_visible = false
+			choice_3_visible = false
 	else:
 		choice_2_visible = false
 	
@@ -109,10 +111,7 @@ func shift_to_next_description():
 	change_all_text()
 	reveal_text()
 	
-	
-
-
-func _process(delta: float) -> void:
+func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("mouse_left_click"):
 		if current_label.visible_ratio == 1.0 && current_label != get_node("TabContainer/ScrollContainer/VBoxContainer/QuestionLabel"):
 				if descriptions_left == 0:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyppjv74qxjhs"
-path="res://.godot/imported/red_cat.webp-0662919458f2c8c62fd99b489f866948.ctex"
+uid="uid://dx4bochjnbj5h"
+path="res://.godot/imported/novascape_asteroid.webp-6901e15f55f0eaf504f1ef7803d12f75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visual_assets/stop_sprites/red_cat.webp"
-dest_files=["res://.godot/imported/red_cat.webp-0662919458f2c8c62fd99b489f866948.ctex"]
+source_file="res://visual_assets/space_sprites/novascape_asteroid.webp"
+dest_files=["res://.godot/imported/novascape_asteroid.webp-6901e15f55f0eaf504f1ef7803d12f75.ctex"]
 
 [params]
 

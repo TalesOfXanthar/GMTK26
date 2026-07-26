@@ -26,5 +26,4 @@ func _process(delta: float) -> void:
 	
 	
 	resource_text.text = "Fuel: " + str(snapped(current_fuel, 0.01)) + " (" + str(snapped(percentage_max_fuel, 1)) + "% Max)
-	
 Engine Overheat: " + str(snapped(GlobalData.engine_overheat, 0.01)) + "%"

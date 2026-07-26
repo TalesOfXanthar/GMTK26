@@ -60,7 +60,7 @@ func change_all_text(main_label_text):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	encounter_identifier = GlobalData.encounter_identifier
+	random_identifier = GlobalData.random_identifier
 	timer.timeout.connect(timer_timeout)
 	change_all_text(description_text)
 	reveal_text()
