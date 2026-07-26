@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0rq10skcibhi"
-path="res://.godot/imported/supernova.png-18c8584a6be4c030ca0b08cf6f352e24.ctex"
+path="res://.godot/imported/supernova.png-06ea90704cf147840bb1b4b6e975bc79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visual_assets/portraits/supernova.png"
-dest_files=["res://.godot/imported/supernova.png-18c8584a6be4c030ca0b08cf6f352e24.ctex"]
+source_file="res://visual_assets/encounters/supernova.png"
+dest_files=["res://.godot/imported/supernova.png-06ea90704cf147840bb1b4b6e975bc79.ctex"]
 
 [params]
 

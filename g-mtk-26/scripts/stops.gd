@@ -23,6 +23,8 @@ var label_deleted := false
 
 
 @export var placeholder_planet : Area2D
+@export var blue_planet : Area2D
+@export var red_cat : Area2D
 
 var area_dict = {
 	"placeholder_planet": {
@@ -32,6 +34,14 @@ var area_dict = {
 	"supernova": {
 		"repeat_state": 0,
 	},
+	"blue_planet": {
+		"repeat_state": 0,
+		"node_name": "BluePlanet"
+	},
+	"red_cat": {
+		"repeat_state": 0,
+		"node_name": "RedCat"
+	}
 }
 
 # Three states of repeatability:
@@ -42,6 +52,10 @@ var area_dict = {
 func _ready() -> void:
 	placeholder_planet.body_entered.connect(stop_area_entered.bind("placeholder_planet"))
 	placeholder_planet.body_exited.connect(stop_area_exited.bind("placeholder_planet"))
+	blue_planet.body_entered.connect(stop_area_entered.bind("blue_planet"))
+	blue_planet.body_exited.connect(stop_area_exited.bind("blue_planet"))
+	red_cat.body_entered.connect(stop_area_entered.bind("red_cat"))
+	red_cat.body_exited.connect(stop_area_exited.bind("red_cat"))
 
 
 
@@ -94,10 +108,6 @@ func stop_area_exited(useless_var, encounter_id):
 
 func start_interaction():
 	GlobalData.fade_out_completed.disconnect(start_interaction)
-	GlobalData.encounter_identifier = stop_id
-	var interaction = interaction_scene.instantiate()
-	gui_canvas_layer.add_child(interaction)
-	GlobalData.input_movement_monitoring = false
 	
 	if area_dict[stop_id]["repeat_state"] == 1:
 		get_node(area_dict[stop_id]["node_name"]).body_entered.disconnect(stop_area_entered)
@@ -105,3 +115,12 @@ func start_interaction():
 	if area_dict[stop_id]["repeat_state"] == 2:
 		get_node(area_dict[stop_id]["node_name"]).queue_free()
 		label_deleted = true
+	
+	if "planet" in stop_id:
+		stop_id = "planet"	
+	
+	GlobalData.encounter_identifier = stop_id
+	var interaction = interaction_scene.instantiate()
+	gui_canvas_layer.add_child(interaction)
+	GlobalData.input_movement_monitoring = false
+	

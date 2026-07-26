@@ -1,0 +1,23 @@
+extends Node
+
+@export var resource_text : RichTextLabel
+
+func _process(delta: float) -> void:
+	var max_fuel := 0.0
+	var current_fuel := 0.0
+	
+	for item in GlobalData.inventory:
+		if item.keys()[0] == "fuel_canister":
+			max_fuel += 5
+			current_fuel += item["fuel_canister"]
+	var percentage_max_fuel : float
+	if current_fuel <= 0:	
+		percentage_max_fuel = 0
+	else:
+		percentage_max_fuel = 100 * (current_fuel / max_fuel)
+	
+	
+	
+	resource_text.text = "Fuel: " + str(snapped(current_fuel, 0.01)) + " (" + str(snapped(percentage_max_fuel, 1)) + "% Max)
+	
+Engine Overheat: " + str(snapped(GlobalData.engine_overheat, 0.01)) + "%"

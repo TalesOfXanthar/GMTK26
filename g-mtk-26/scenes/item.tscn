@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://3oa80feqxpn8"]
+
+[ext_resource type="Texture2D" uid="uid://3io0km2cys25" path="res://visual_assets/item_sprites/empty.png" id="1_4gq7n"]
+[ext_resource type="Script" uid="uid://vajullvc3lxd" path="res://scenes/item.gd" id="1_s8enn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44uij"]
+size = Vector2(16, 16)
+
+[node name="Item" type="Control" unique_id=373850001 node_paths=PackedStringArray("rect", "highlight_rect", "area", "item_sprite")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_s8enn")
+rect = NodePath("ColorRect")
+highlight_rect = NodePath("HighlightRect")
+area = NodePath("Area2D")
+item_sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1765288689]
+texture = ExtResource("1_4gq7n")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1444211143]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HighlightRect" type="ColorRect" parent="." unique_id=1760834518]
+visible = false
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0.26147652, 0.26147655, 0.26147652, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=860139743]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=96261318]
+shape = SubResource("RectangleShape2D_44uij")

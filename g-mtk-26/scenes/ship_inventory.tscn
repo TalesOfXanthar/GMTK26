@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://bmt0eg8f70xe4"]
+
+[ext_resource type="Texture2D" uid="uid://d0qnbqi5axmqn" path="res://visual_assets/gui_elements/resources.png" id="1_olku4"]
+[ext_resource type="PackedScene" uid="uid://3oa80feqxpn8" path="res://scenes/item.tscn" id="2_xb4i3"]
+
+[node name="ShipInventory" type="Node2D" unique_id=1465073727]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=467354945]
+position = Vector2(64, 64)
+rotation = 3.1415927
+texture = ExtResource("1_olku4")
+
+[node name="GridContainer" type="Node" parent="." unique_id=1580091139]
+
+[node name="Item0" parent="GridContainer" unique_id=2081812819 instance=ExtResource("2_xb4i3")]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 16.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Item1" parent="GridContainer" unique_id=1826553189 instance=ExtResource("2_xb4i3")]
+offset_left = 48.0
+offset_top = 16.0
+offset_right = 48.0
+offset_bottom = 16.0
+index_number = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Item2" parent="GridContainer" unique_id=1466144499 instance=ExtResource("2_xb4i3")]
+offset_left = 80.0
+offset_top = 16.0
+offset_right = 80.0
+offset_bottom = 16.0
+index_number = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Item3" parent="GridContainer" unique_id=963042190 instance=ExtResource("2_xb4i3")]
+offset_left = 112.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 16.0
+index_number = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Item4" parent="GridContainer" unique_id=1229951285 instance=ExtResource("2_xb4i3")]
+offset_left = 16.0
+offset_top = 48.0
+offset_right = 16.0
+offset_bottom = 48.0
+index_number = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Item5" parent="GridContainer" unique_id=1241631687 instance=ExtResource("2_xb4i3")]
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 48.0
+offset_bottom = 48.0
+index_number = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Item6" parent="GridContainer" unique_id=1851828863 instance=ExtResource("2_xb4i3")]
+offset_left = 80.0
+offset_top = 48.0
+offset_right = 80.0
+offset_bottom = 48.0
+index_number = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="Item7" parent="GridContainer" unique_id=390977346 instance=ExtResource("2_xb4i3")]
+offset_left = 112.0
+offset_top = 48.0
+offset_right = 112.0
+offset_bottom = 48.0
+index_number = 7
+metadata/_edit_use_anchors_ = true
+
+[node name="Item8" parent="GridContainer" unique_id=1969790253 instance=ExtResource("2_xb4i3")]
+offset_left = 16.0
+offset_top = 80.0
+offset_right = 16.0
+offset_bottom = 80.0
+index_number = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="Item9" parent="GridContainer" unique_id=1293786074 instance=ExtResource("2_xb4i3")]
+offset_left = 48.0
+offset_top = 80.0
+offset_right = 48.0
+offset_bottom = 80.0
+index_number = 9
+metadata/_edit_use_anchors_ = true
+
+[node name="Item10" parent="GridContainer" unique_id=1061293250 instance=ExtResource("2_xb4i3")]
+offset_left = 80.0
+offset_top = 80.0
+offset_right = 80.0
+offset_bottom = 80.0
+index_number = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Item11" parent="GridContainer" unique_id=2003870865 instance=ExtResource("2_xb4i3")]
+offset_left = 112.0
+offset_top = 80.0
+offset_right = 112.0
+offset_bottom = 80.0
+index_number = 11
+metadata/_edit_use_anchors_ = true
+
+[node name="Item12" parent="GridContainer" unique_id=476256373 instance=ExtResource("2_xb4i3")]
+offset_left = 16.0
+offset_top = 112.0
+offset_right = 16.0
+offset_bottom = 112.0
+index_number = 12
+metadata/_edit_use_anchors_ = true
+
+[node name="Item13" parent="GridContainer" unique_id=1375036185 instance=ExtResource("2_xb4i3")]
+offset_left = 48.0
+offset_top = 112.0
+offset_right = 48.0
+offset_bottom = 112.0
+index_number = 13
+metadata/_edit_use_anchors_ = true
+
+[node name="Item14" parent="GridContainer" unique_id=1143116618 instance=ExtResource("2_xb4i3")]
+offset_left = 80.0
+offset_top = 112.0
+offset_right = 80.0
+offset_bottom = 112.0
+index_number = 14
+metadata/_edit_use_anchors_ = true
+
+[node name="Item15" parent="GridContainer" unique_id=2061288963 instance=ExtResource("2_xb4i3")]
+offset_left = 112.0
+offset_top = 112.0
+offset_right = 112.0
+offset_bottom = 112.0
+index_number = 15
+metadata/_edit_use_anchors_ = true

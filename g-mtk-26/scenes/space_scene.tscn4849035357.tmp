@@ -10,12 +10,10 @@
 [ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual_assets/theme_assets/text_theme.tres" id="7_6scvu"]
 [ext_resource type="Texture2D" uid="uid://b7g1v21rb36x2" path="res://visual_assets/gui_elements/enter_box.png" id="8_mxyie"]
 [ext_resource type="Script" uid="uid://dnug336amiy5l" path="res://scripts/giant_countdown.gd" id="9_i2e4q"]
-[ext_resource type="Texture2D" uid="uid://b0ufovpo1nb1" path="res://visual_assets/stop_sprites/blue_planet.webp" id="10_bl5p1"]
 [ext_resource type="AudioStream" uid="uid://d10ey8efb2djc" path="res://audio/sound_effects/SFX_ENCOUNTER.wav" id="10_i2e4q"]
-[ext_resource type="Texture2D" uid="uid://dyppjv74qxjhs" path="res://visual_assets/stop_sprites/red_cat.webp" id="11_rbo46"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44uij"]
-radius = 20.024984
+radius = 16.0
 
 [node name="SpaceScene" type="Node" unique_id=1816419304]
 
@@ -28,6 +26,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="ResourceShipLayer" type="CanvasLayer" parent="." unique_id=941754091]
 layer = 2
+visible = false
 
 [node name="Resources" parent="ResourceShipLayer" unique_id=1947465134 instance=ExtResource("1_ntytb")]
 
@@ -43,25 +42,22 @@ texture = ExtResource("1_ma5ay")
 [node name="CharacterBody2D" parent="CanvasLayer/Space" unique_id=1661900380 instance=ExtResource("1_rcdtf")]
 z_index = 1
 texture_filter = 1
-position = Vector2(2000, 2000)
+position = Vector2(1040, 608)
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/Space" unique_id=1144326815 node_paths=PackedStringArray("player")]
 texture_filter = 1
 script = ExtResource("3_vu1g8")
 player = NodePath("../CharacterBody2D")
 
-[node name="Stops" type="Node2D" parent="CanvasLayer/Space" unique_id=1228552937 node_paths=PackedStringArray("gui_canvas_layer", "encounter_sfx", "label_timer", "placeholder_planet", "blue_planet", "red_cat")]
+[node name="Stops" type="Node2D" parent="CanvasLayer/Space" unique_id=1228552937 node_paths=PackedStringArray("gui_canvas_layer", "encounter_sfx", "label_timer", "placeholder_planet")]
 script = ExtResource("1_4c1q5")
 interaction_scene = ExtResource("2_jsx7o")
 gui_canvas_layer = NodePath("../../../GuiCanvasLayer")
 encounter_sfx = NodePath("../../../EncounterSFX")
 label_timer = NodePath("../LabelTimer")
 placeholder_planet = NodePath("PlaceholderPlanet")
-blue_planet = NodePath("BluePlanet")
-red_cat = NodePath("RedCat")
 
 [node name="PlaceholderPlanet" type="Area2D" parent="CanvasLayer/Space/Stops" unique_id=1623959098]
-visible = false
 position = Vector2(1184, 672)
 collision_layer = 2
 collision_mask = 2
@@ -94,87 +90,6 @@ width = 1.0
 default_color = Color(0.09803922, 0.29803923, 0.09803922, 1)
 
 [node name="EnterBox" type="Sprite2D" parent="CanvasLayer/Space/Stops/PlaceholderPlanet/Label" unique_id=347649189]
-z_index = -1
-position = Vector2(48, 13.999987)
-scale = Vector2(1, 0.999999)
-texture = ExtResource("8_mxyie")
-
-[node name="BluePlanet" type="Area2D" parent="CanvasLayer/Space/Stops" unique_id=533591936]
-position = Vector2(2352, 2000)
-collision_layer = 2
-collision_mask = 2
-priority = 1
-
-[node name="Planet" type="Sprite2D" parent="CanvasLayer/Space/Stops/BluePlanet" unique_id=337010203]
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("10_bl5p1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Space/Stops/BluePlanet" unique_id=1848493711]
-position = Vector2(-1, 0)
-shape = SubResource("CircleShape2D_44uij")
-
-[node name="Label" type="Label" parent="CanvasLayer/Space/Stops/BluePlanet" unique_id=29956148]
-visible = false
-z_index = 1
-offset_left = -32.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = -32.0
-theme = ExtResource("7_6scvu")
-text = "Posiedon
-[Enter]"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Line2D" type="Line2D" parent="CanvasLayer/Space/Stops/BluePlanet/Label" unique_id=927452500]
-z_index = -1
-z_as_relative = false
-points = PackedVector2Array(48, 26, 32, 48)
-width = 1.0
-default_color = Color(0.09803922, 0.29803923, 0.09803922, 1)
-
-[node name="EnterBox" type="Sprite2D" parent="CanvasLayer/Space/Stops/BluePlanet/Label" unique_id=1067333979]
-z_index = -1
-position = Vector2(48, 13.999987)
-scale = Vector2(1, 0.999999)
-texture = ExtResource("8_mxyie")
-
-[node name="RedCat" type="Area2D" parent="CanvasLayer/Space/Stops" unique_id=266936678]
-position = Vector2(2352, 2000)
-collision_layer = 2
-collision_mask = 2
-priority = 1
-
-[node name="Planet" type="Sprite2D" parent="CanvasLayer/Space/Stops/RedCat" unique_id=660962067]
-position = Vector2(936, -8)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("11_rbo46")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Space/Stops/RedCat" unique_id=1770440616]
-position = Vector2(936, -8)
-shape = SubResource("CircleShape2D_44uij")
-
-[node name="Label" type="Label" parent="CanvasLayer/Space/Stops/RedCat" unique_id=1213764230]
-visible = false
-z_index = 1
-offset_left = 904.0
-offset_top = -72.0
-offset_right = 1000.0
-offset_bottom = -40.0
-theme = ExtResource("7_6scvu")
-text = "Ares
-[Enter]"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Line2D" type="Line2D" parent="CanvasLayer/Space/Stops/RedCat/Label" unique_id=1911279762]
-z_index = -1
-z_as_relative = false
-points = PackedVector2Array(48, 26, 32, 48)
-width = 1.0
-default_color = Color(0.09803922, 0.29803923, 0.09803922, 1)
-
-[node name="EnterBox" type="Sprite2D" parent="CanvasLayer/Space/Stops/RedCat/Label" unique_id=529613860]
 z_index = -1
 position = Vector2(48, 13.999987)
 scale = Vector2(1, 0.999999)

@@ -50,10 +50,10 @@ func change_all_text():
 	
 	displayTextOption(current_label, current_text, "blank_input")
 	displayTextOption(choice_1, choices_list[0], "choice_1")
-	if choices_list.size() >= 1:
+	if choices_list.size() >= 2:
 		choice_2_visible = true
 		displayTextOption(choice_2, choices_list[1], "choice_2")
-		if choices_list.size() >= 2:
+		if choices_list.size() >= 3:
 			choice_3_visible = true
 			displayTextOption(choice_3, choices_list[2], "choice_3")
 		else:

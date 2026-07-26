@@ -1,7 +1,7 @@
 {
 	"placeholder_planet": 
 		{
-			"sprite_path": "res://visual_assets/portraits/stranded_astronaut.png",
+			"sprite_path": "res://visual_assets/encounters/stranded_astronaut.png",
 			"descriptions": 
 				[
 				"Hello! This is placeholder text for placeholder planet! Wow! so cool!",
@@ -12,43 +12,60 @@
 				{
 				"1. Choose this one!": 
 					{
-					"99": ["You got expected result!", "0"],
-					"1": ["You got unexpected result!", "1"],
+					"99": ["You got expected result!", "nothing"],
+					"1": ["You got unexpected result!", "nothing"],
 					},
 				"2. Or this one!":
 					{
-					"50": ["You got a result!", "0"],
-					"17": ["You got the other result!", "1"],
-					"33": ["You got a crazy result!", "2"],
+					"50": ["You got a result!", "nothing"],
+					"17": ["You got the other result!", "nothing"],
+					"33": ["You got a crazy result!", "nothing"],
 					},
 				"3. This one may or may not work.": 
 					{
-					"100": ["You got guranteed result!", "0"],
+					"100": ["You got guranteed result!", "nothing"],
 					},
 			},
 		},
 	"supernova": 
 		{
-			"sprite_path": "res://visual_assets/portraits/supernova.png",
+			"sprite_path": "res://visual_assets/encounters/supernova.png",
 			"descriptions": 
 				[
 				"As your timer ticks to zero, only just for a moment, you see a flash of light before dying.",
 				"The supernova eradicates the solar system.",
 			],
-			"question": "Restart?",
+			"question": "Maybe it could've ended differently?",
 			"choices": 
 				{
-				"Yes": 
+				"1. Restart": 
 					{
 					"1": ["The game was restarted.", "restart"],
 					},
-				"Title Screen": 
+				"2. Title Screen": 
 					{
 					"1": ["The game went back to title screen.", "title"],
 					},
-				"Quit":
+				"3. Quit":
 					{
 					"1": ["The game was quit.", "quit"],
+					},
+			},
+		},
+	"planet": 
+		{
+			"sprite_path": "res://visual_assets/encounters/planet_encounter.png",
+			"descriptions": 
+				[
+				"You stop over a planet to let your engines cool.",
+				"Its uneventful, but the view is beautiful.",
+			],
+			"question": "Will there be anything left here after the supernova?",
+			"choices": 
+				{
+				"1. Leave": 
+					{
+					"1": ["You left the planet.", "reset_heat"],
 					},
 			},
 		},

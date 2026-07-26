@@ -32,11 +32,10 @@ layout_mode = 0
 offset_right = 256.0
 offset_bottom = 88.0
 theme = ExtResource("2_mw6y7")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer" unique_id=798582230]
-visible = false
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
 metadata/_tab_index = 0
@@ -81,6 +80,7 @@ flat = true
 alignment = 0
 
 [node name="DescriptionLabel" type="RichTextLabel" parent="TabContainer" unique_id=567164133]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_mw6y7")
 text = "Hello?weohfoewhfouhwuogfwugfuegwfuwfufhwufhfeowhfhefhwoehfoheowfho"
