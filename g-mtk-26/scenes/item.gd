@@ -41,6 +41,7 @@ func get_item_properties():
 func mouse_entered():
 	mouse_hovering = true
 	highlight_rect.show()
+	# make a timer that if it reaches 1 second without mouse exiting, show info
 	
 func mouse_exited():
 	mouse_hovering = false
@@ -55,4 +56,5 @@ func another_area_exited_this_one(useless_var):
 
 func dropped_item():
 	if being_hovered_over == true:
+		
 		GlobalData.inventory[index_number] = GlobalData.item_attached

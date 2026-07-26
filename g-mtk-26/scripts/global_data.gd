@@ -56,6 +56,7 @@ func _ready() -> void:
 	item_attached_sprite = Sprite2D.new()
 	add_child(item_attached_sprite)
 	item_attached_sprite.hide()
+	item_attached_sprite.z_index = -3
 
 func _process(delta: float) -> void:
 	if fade_in_active == true:	
@@ -66,6 +67,7 @@ func _process(delta: float) -> void:
 		fade_out_rect.color = Color(0, 0, 0, percent_completed)
 	if is_item_attached == true:
 		item_attached_sprite.position = get_viewport().get_mouse_position()
+		item_attached_sprite.z_index = 10
 	
 	
 

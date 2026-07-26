@@ -15,9 +15,6 @@ highlight_rect = NodePath("HighlightRect")
 area = NodePath("Area2D")
 item_sprite = NodePath("Sprite2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1765288689]
-texture = ExtResource("1_4gq7n")
-
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1444211143]
 layout_mode = 0
 offset_left = -8.0
@@ -27,6 +24,9 @@ offset_bottom = 8.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1765288689]
+texture = ExtResource("1_4gq7n")
+
 [node name="HighlightRect" type="ColorRect" parent="." unique_id=1760834518]
 visible = false
 layout_mode = 0
@@ -34,7 +34,7 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
-color = Color(0.26147652, 0.26147655, 0.26147652, 1)
+color = Color(0.26244184, 0.26244184, 0.26244184, 0.51900005)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=860139743]
 

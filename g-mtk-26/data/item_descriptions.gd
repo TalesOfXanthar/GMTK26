@@ -18,7 +18,15 @@ var item_desc = {
 			
 		],
 		"template": {"fuel":5}
-	}
+	},
+	"thruster": {
+		"sprite": "res://visual_assets/item_sprites/fuel_canister.png",
+		"moveable" : true,
+		"tags": [
+			
+		],
+		"template": {"fuel":5}
+	},
 }
 
 var slot_neighbors = {
