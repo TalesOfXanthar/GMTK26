@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 	else:
 		text = str(minutes_left) + ":0" + str(seconds_left)
 	
-	if minutes_left == 4 and seconds_left == 50:
+	if minutes_left == 0 and seconds_left == 60:
 		$AudioStreamPlayer.stop()
 		$Starchild.play()
 	else:
