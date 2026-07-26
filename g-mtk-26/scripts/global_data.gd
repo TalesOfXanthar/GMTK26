@@ -13,12 +13,19 @@ signal start_countdown
 
 signal dropped_item
 
+## Determines whether mouse has Sprite2D that follows.
 var is_item_attached := false
+## The item that you are dragging around.
 var item_attached : Dictionary
+## The item that you are currently hovering over.
 var item_hovering_over : Dictionary
-var item_attached_sprite : Sprite2D
 
+var item_attached_sprite : Sprite2D
+## Confirms whether an item was taken from its slot where it was after
+## being placed on the item that you were hovering over.
 var confirmed_took_item = false
+
+var failed_to_find_item := true
 
 var engine_overheat := 0.0
 
@@ -66,8 +73,18 @@ func _input(event: InputEvent) -> void:
 		item_attached_sprite.z_index = 10
 		item_attached_sprite.top_level = true
 		if Input.is_action_just_released("mouse_left_click"):
+			print("3")
 			is_item_attached = false
 			item_attached_sprite.hide()
+			#GlobalData.item_hovering_over = GlobalData.inventory[index_number].duplicate_deep()
+			for item:Item in get_node("/root/SceneManager/SpaceScene/ItemShipLayer/ShipInventory/ItemList").get_children():
+				if item.mouse_hovering:
+					item_hovering_over = inventory[item.index_number].duplicate_deep()
+					failed_to_find_item = false
+					break
+				else:
+					failed_to_find_item = true
+			print("4")
 			dropped_item.emit()
 			item_attached_sprite.top_level = false
 

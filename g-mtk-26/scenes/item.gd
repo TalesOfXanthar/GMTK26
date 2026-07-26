@@ -1,4 +1,6 @@
 extends Control
+class_name Item
+
 
 ## The INDEX number to retrive the item from the list. (Starts from 0)
 @export var index_number : int
@@ -30,15 +32,21 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if mouse_hovering == true:	
 		if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-			backup_store = GlobalData.inventory[index_number].duplicate_deep()
+			
 			GlobalData.item_attached = GlobalData.inventory[index_number].duplicate_deep()
+			print("1")
+			
+			
 			GlobalData.is_item_attached = true
 			GlobalData.item_attached_sprite.texture = load(ItemDescriptions.item_desc[item_type]["sprite"])
 			GlobalData.item_attached_sprite.show()
+			
 			GlobalData.inventory[index_number] = ItemDescriptions.item_desc["empty"]["template"]
 			get_item_properties()
+			print("2")
 			
 			is_the_item_hovering_over_others = true
+			GlobalData.confirmed_took_item = false
 
 func get_item_properties():
 	item_type = GlobalData.inventory[index_number].keys()[0]
@@ -46,34 +54,27 @@ func get_item_properties():
 		rect.visible = false
 	item_sprite.texture = load(ItemDescriptions.item_desc[item_type]["sprite"])
 	moveable = ItemDescriptions.item_desc[item_type]["moveable"]
-	GlobalData.confirmed_took_item = false
 	
 func mouse_entered():
 	mouse_hovering = true
-	GlobalData.item_hovering_over = GlobalData.inventory[index_number].duplicate_deep()
 	highlight_rect.show()
 	# make a timer that if it reaches 1 second without mouse exiting, show info
 	
 func mouse_exited():
 	mouse_hovering = false
-	GlobalData.item_hovering_over = {}
 	highlight_rect.hide()
 
 func dropped_item_was_called():
-	if mouse_hovering == true && is_the_item_hovering_over_others == false:
+	if mouse_hovering == true:
+		is_the_item_hovering_over_others = false
 		GlobalData.inventory[index_number] = GlobalData.item_attached.duplicate_deep()
-		GlobalData.confirmed_took_item = true
-		get_item_properties()
-	if is_the_item_hovering_over_others == true:
-		if mouse_hovering == true:
-			GlobalData.inventory[index_number] = backup_store.duplicate()
+		print("5")
+	elif is_the_item_hovering_over_others == true:
+		is_the_item_hovering_over_others = false
+		if GlobalData.failed_to_find_item == true:
+			GlobalData.inventory[index_number] = GlobalData.item_attached.duplicate_deep()
+			print("failed_to_find")
 		else:
-			is_the_item_hovering_over_others = false
-			if GlobalData.item_hovering_over != {}:
-				GlobalData.inventory[index_number] = GlobalData.item_hovering_over.duplicate()
-			elif GlobalData.confirmed_took_item == false:
-				GlobalData.inventory[index_number] = GlobalData.item_attached.duplicate_deep()
-			else:
-				print("something went so wrong")
-				print(mouse_hovering)
-		get_item_properties()
+			GlobalData.inventory[index_number] = GlobalData.item_hovering_over.duplicate()
+		print("6")
+	get_item_properties()
