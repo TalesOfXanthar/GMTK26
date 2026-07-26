@@ -37,7 +37,7 @@ var inventory = [
 		{"empty": null},
 		{"empty": null},
 		{"empty": null},
-		{"empty": null},
+		{"thruster":{"damaged": false}},
 		{"empty": null},
 		{"empty": null},
 		{"locked": null},
@@ -56,19 +56,20 @@ var fade_out_active := false
 
 func _ready() -> void:
 	item_attached_sprite = Sprite2D.new()
-	add_child(item_attached_sprite)
+	get_node("/root/SceneManager/FadeLayer").add_child(item_attached_sprite)
 	item_attached_sprite.hide()
-	item_attached_sprite.z_index = -3
+	item_attached_sprite.top_level = true
 	
 func _input(event: InputEvent) -> void:
 	if is_item_attached == true:
 		item_attached_sprite.position = get_viewport().get_mouse_position()
 		item_attached_sprite.z_index = 10
+		item_attached_sprite.top_level = true
 		if Input.is_action_just_released("mouse_left_click"):
 			is_item_attached = false
 			item_attached_sprite.hide()
-			item_attached_sprite.z_index = -3
 			dropped_item.emit()
+			item_attached_sprite.top_level = false
 
 func _process(delta: float) -> void:
 	if fade_in_active == true:	

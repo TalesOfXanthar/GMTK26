@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmt0eg8f70xe4"]
 
-[ext_resource type="Texture2D" uid="uid://d0qnbqi5axmqn" path="res://visual_assets/gui_elements/resources.png" id="1_olku4"]
+[ext_resource type="Texture2D" uid="uid://d0qnbqi5axmqn" path="res://visual_assets/gui_elements/inventory.png" id="1_olku4"]
 [ext_resource type="PackedScene" uid="uid://3oa80feqxpn8" path="res://scenes/item.tscn" id="2_xb4i3"]
 
 [node name="ShipInventory" type="Node2D" unique_id=1465073727]
@@ -36,6 +36,7 @@ index_number = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Item3" parent="GridContainer" unique_id=963042190 instance=ExtResource("2_xb4i3")]
+visible = false
 offset_left = 112.0
 offset_top = 16.0
 offset_right = 112.0
@@ -44,6 +45,7 @@ index_number = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="Item4" parent="GridContainer" unique_id=1229951285 instance=ExtResource("2_xb4i3")]
+visible = false
 offset_left = 16.0
 offset_top = 48.0
 offset_right = 16.0
@@ -76,6 +78,7 @@ index_number = 7
 metadata/_edit_use_anchors_ = true
 
 [node name="Item8" parent="GridContainer" unique_id=1969790253 instance=ExtResource("2_xb4i3")]
+visible = false
 offset_left = 16.0
 offset_top = 80.0
 offset_right = 16.0
@@ -132,6 +135,7 @@ index_number = 14
 metadata/_edit_use_anchors_ = true
 
 [node name="Item15" parent="GridContainer" unique_id=2061288963 instance=ExtResource("2_xb4i3")]
+visible = false
 offset_left = 112.0
 offset_top = 112.0
 offset_right = 112.0

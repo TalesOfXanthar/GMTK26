@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://kb6oyn3bkj1n"]
 
-[ext_resource type="Texture2D" uid="uid://d0qnbqi5axmqn" path="res://visual_assets/gui_elements/resources.png" id="1_3m1lq"]
+[ext_resource type="Texture2D" uid="uid://da1ak7d20x8yi" path="res://visual_assets/gui_elements/resources.png" id="1_3m1lq"]
 [ext_resource type="Script" uid="uid://bcqdkwd1c2j28" path="res://scenes/resources.gd" id="1_hkvus"]
 [ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual_assets/theme_assets/text_theme.tres" id="2_dqf23"]
 
@@ -18,7 +18,7 @@ offset_right = 384.0
 offset_bottom = 120.0
 
 [node name="Resources" type="Sprite2D" parent="." unique_id=1011495223]
-position = Vector2(320, 64)
+position = Vector2(320, 32)
 texture = ExtResource("1_3m1lq")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2028853108]
@@ -26,11 +26,10 @@ layout_mode = 0
 offset_left = 264.0
 offset_top = 16.0
 offset_right = 376.0
-offset_bottom = 112.0
+offset_bottom = 48.0
 theme = ExtResource("2_dqf23")
 text = "Fuel: 100%
-
-
-
 Engine Heat: 10%"
 vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=56917811]

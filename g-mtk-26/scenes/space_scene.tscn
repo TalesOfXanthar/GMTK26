@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ufovpo1nb1" path="res://visual_assets/stop_sprites/blue_planet.webp" id="10_bl5p1"]
 [ext_resource type="AudioStream" uid="uid://d10ey8efb2djc" path="res://audio/sound_effects/SFX_ENCOUNTER.wav" id="10_i2e4q"]
 [ext_resource type="Texture2D" uid="uid://dyppjv74qxjhs" path="res://visual_assets/stop_sprites/red_cat.webp" id="11_rbo46"]
+[ext_resource type="PackedScene" uid="uid://bmt0eg8f70xe4" path="res://scenes/ship_inventory.tscn" id="15_cbu5l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44uij"]
 radius = 20.024984
@@ -24,14 +25,6 @@ radius = 20.024984
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_7qi47")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1663616680]
-visible = false
-z_index = -4
-z_as_relative = false
-offset_right = 6208.0
-offset_bottom = 3648.0
-color = Color(0, 0, 0, 1)
 
 [node name="ResourceShipLayer" type="CanvasLayer" parent="." unique_id=941754091]
 layer = 2
@@ -220,3 +213,8 @@ autostart = true
 
 [node name="EncounterSFX" type="AudioStreamPlayer" parent="." unique_id=439747123]
 stream = ExtResource("10_i2e4q")
+
+[node name="ItemShipLayer" type="CanvasLayer" parent="." unique_id=159420364]
+layer = 2
+
+[node name="ShipInventory" parent="ItemShipLayer" unique_id=1465073727 instance=ExtResource("15_cbu5l")]
