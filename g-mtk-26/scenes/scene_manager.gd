@@ -1,4 +1,8 @@
 extends Node
 
-func _ready() -> void:
-	get()
+
+
+
+func _on_main_menu_wiefwij() -> void:
+	$SpaceScene.show()
+	$FadeLayer/MainMenu.hide()

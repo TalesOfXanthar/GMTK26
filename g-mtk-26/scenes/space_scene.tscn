@@ -88,9 +88,12 @@ stream_3/stream = ExtResource("23_2g33w")
 stream_4/stream = ExtResource("24_muukt")
 stream_5/stream = ExtResource("25_6md6r")
 
-[node name="SpaceScene" type="Node" unique_id=1816419304]
+[node name="SpaceScene" type="Control" unique_id=494902234]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1148311986]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_7qi47")

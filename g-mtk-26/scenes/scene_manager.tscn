@@ -1,21 +1,19 @@
 [gd_scene format=3 uid="uid://crpq57gia7ovw"]
 
-<<<<<<< HEAD
-[ext_resource type="Script" uid="uid://b6l67a62muibh" path="res://scenes/scene_manager.gd" id="1_65mdo"]
-=======
 [ext_resource type="PackedScene" uid="uid://ch5r7mnwduxih" path="res://scenes/main_menu.tscn" id="1_65mdo"]
->>>>>>> b2904cf6a7993f7d0af6b6a6c660b18aeb8b8c1f
+[ext_resource type="Script" uid="uid://b6l67a62muibh" path="res://scenes/scene_manager.gd" id="1_b81s6"]
 [ext_resource type="PackedScene" uid="uid://djqf6p1tkkgcj" path="res://scenes/space_scene.tscn" id="1_we8k5"]
 
 [node name="SceneManager" type="Node" unique_id=1948687918]
-script = ExtResource("1_65mdo")
-
-[node name="MainMenu" parent="." unique_id=334547364 instance=ExtResource("1_65mdo")]
+script = ExtResource("1_b81s6")
 
 [node name="SpaceScene" parent="." unique_id=1545532700 instance=ExtResource("1_we8k5")]
+visible = false
 
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=1344182898]
 layer = 4
+
+[node name="MainMenu" parent="FadeLayer" unique_id=334547364 instance=ExtResource("1_65mdo")]
 
 [node name="FadeInRect" type="ColorRect" parent="FadeLayer" unique_id=1156186971]
 visible = false
@@ -33,3 +31,5 @@ color = Color(0, 0, 0, 1)
 one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1411013119]
+
+[connection signal="wiefwij" from="FadeLayer/MainMenu" to="." method="_on_main_menu_wiefwij"]

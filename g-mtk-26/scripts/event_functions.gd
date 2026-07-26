@@ -54,3 +54,6 @@ func lose_fuel_add_scrap():
 
 func lose_fuel_small():
 	GlobalData.current_fuel -= 1
+
+func megaquit():
+	get_tree().quit()

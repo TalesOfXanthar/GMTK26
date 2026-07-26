@@ -25,19 +25,15 @@
 			"sprite_path": "res://visual_assets/encounters/supernova.png",
 			"descriptions": 
 				[
-				"As your timer ticks to zero, only just for a moment, you see a flash of light before dying.",
-				"The supernova eradicates the solar system.",
+				"You win",
+				"yay",
 			],
 			"question": "Maybe it could've ended differently?",
 			"choices": 
 				{
-				"1. Title Screen": 
-					{
-					"1": ["The game went back to title screen.", "title"],
-					},
 				"2. Quit":
 					{
-					"1": ["The game was quit.", "quit"],
+					"1": ["The game was quit.", "megaquit"],
 					},
 			},
 		},

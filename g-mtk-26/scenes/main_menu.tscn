@@ -146,5 +146,6 @@ fit_content = false
 scroll_active = true
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="ColorRect/ExitCredits" to="." method="_on_exit_credits_pressed"]

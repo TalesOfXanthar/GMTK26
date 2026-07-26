@@ -1,5 +1,6 @@
 extends TextureRect
 
+signal wiefwij
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,3 +22,7 @@ func _on_exit_credits_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_play_pressed() -> void:
+	wiefwij.emit()
