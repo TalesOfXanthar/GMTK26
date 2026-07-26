@@ -465,8 +465,11 @@ stops = NodePath("../../CanvasLayer/Space/Stops")
 stream = ExtResource("19_1dowx")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CountdownLayer/GiantCountdown" unique_id=664375384]
+process_priority = 1
 stream = SubResource("AudioStreamRandomizer_exlx6")
+volume_db = 8.904
 autoplay = true
+playback_type = 1
 
 [node name="CountdownTimer" type="Timer" parent="CountdownLayer" unique_id=487332361]
 wait_time = 300.0
