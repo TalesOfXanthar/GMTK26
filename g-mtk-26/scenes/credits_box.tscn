@@ -4,8 +4,10 @@
 
 [node name="CreditsBox" type="RichTextLabel" unique_id=2144529674]
 custom_minimum_size = Vector2(1, 1)
-offset_right = 196.0
-offset_bottom = 217.0
+offset_left = 20.0
+offset_top = 9.0
+offset_right = 216.0
+offset_bottom = 271.0
 theme = ExtResource("1_mqjse")
 bbcode_enabled = true
 text = "Novascape was created and developed for the GMTK game jam 2026 by:
@@ -24,12 +26,17 @@ Chanterelle64
 Art:
 James Mac
 Aidan Lynch
+TalesOfXanthar
 
 Writing:
 James Mac
+Chanterelle64
+TalesOfXanthar
 
-Music:
+Music & Sound Effects:
 Neon Voxel
+
+All art and assets are original creations by our team
 
 No generative AI was used in the creation of this game"
 fit_content = true
