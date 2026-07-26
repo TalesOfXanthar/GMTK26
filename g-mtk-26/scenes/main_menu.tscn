@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://ch5r7mnwduxih"]
+
+[ext_resource type="Texture2D" uid="uid://i58j6gxrtmt4" path="res://visual_assets/stars_extra_smol.jpg" id="1_wu84c"]
+[ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual_assets/theme_assets/text_theme.tres" id="2_8ln24"]
+[ext_resource type="Script" uid="uid://mffupagacsjk" path="res://scenes/main_menu.gd" id="2_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://b7g1v21rb36x2" path="res://visual_assets/gui_elements/enter_box.png" id="3_rtw2f"]
+[ext_resource type="PackedScene" uid="uid://yu1fmj1xxffm" path="res://scenes/credits_box.tscn" id="4_oa1go"]
+
+[node name="MainMenu" type="TextureRect" unique_id=334547364]
+z_index = 4
+offset_right = 384.0
+offset_bottom = 216.0
+texture = ExtResource("1_wu84c")
+script = ExtResource("2_rtw2f")
+
+[node name="Label" type="Label" parent="." unique_id=2098367638]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -89.0
+offset_top = 26.0
+offset_right = 91.0
+offset_bottom = 103.0
+grow_horizontal = 2
+theme = ExtResource("2_8ln24")
+theme_override_font_sizes/font_size = 42
+text = "Novascape"
+
+[node name="Quit" type="Button" parent="." unique_id=2110466788]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 63.0
+offset_top = -18.0
+offset_right = 167.0
+offset_bottom = 18.0
+grow_vertical = 2
+theme = ExtResource("2_8ln24")
+theme_override_font_sizes/font_size = 21
+text = "Quit"
+icon = ExtResource("3_rtw2f")
+flat = true
+icon_alignment = 1
+
+[node name="Play" type="Button" parent="." unique_id=1932581738]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -18.0
+offset_right = -70.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_8ln24")
+theme_override_font_sizes/font_size = 21
+text = "Play"
+icon = ExtResource("3_rtw2f")
+flat = true
+icon_alignment = 1
+
+[node name="Credits" type="Button" parent="." unique_id=169852396]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -80.0
+offset_right = 52.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_8ln24")
+theme_override_font_sizes/font_size = 21
+text = "Credits"
+icon = ExtResource("3_rtw2f")
+flat = true
+icon_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1465178917]
+visible = false
+layout_mode = 0
+offset_right = 385.0
+offset_bottom = 216.0
+color = Color(0, 0, 0, 1)
+
+[node name="ExitCredits" type="Button" parent="ColorRect" unique_id=1269779979]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.0
+offset_bottom = 31.0
+grow_horizontal = 0
+theme = ExtResource("2_8ln24")
+theme_override_font_sizes/font_size = 33
+text = "X"
+flat = true
+
+[node name="CreditsBox" parent="ColorRect" unique_id=2144529674 instance=ExtResource("4_oa1go")]
+z_index = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 26.0
+offset_right = 382.0
+offset_bottom = 217.0
+theme_override_font_sizes/normal_font_size = 10
+text = "Novascape was created and developed for the GMTK game jam 2026 by:
+
+TalesOfXanthar
+Chanterelle64
+James Mac
+Aidan Lynch
+Neon Voxel
+
+
+Programming:
+TalesOfXanthar
+Chanterelle64
+
+Art:
+James Mac
+Aidan Lynch
+TalesOfXanthar
+
+Writing:
+James Mac
+Chanterelle64
+TalesOfXanthar
+
+Music & Sound Effects:
+Neon Voxel
+
+All art and assets are original creations by our team
+
+No generative AI was used in the creation of this game
+"
+fit_content = false
+scroll_active = true
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="ColorRect/ExitCredits" to="." method="_on_exit_credits_pressed"]
