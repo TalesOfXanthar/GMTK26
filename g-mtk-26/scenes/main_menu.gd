@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_credits_pressed() -> void:
-	$ColorRect.show()
+	$ColorRect.show()	
 
 
 func _on_exit_credits_pressed() -> void:

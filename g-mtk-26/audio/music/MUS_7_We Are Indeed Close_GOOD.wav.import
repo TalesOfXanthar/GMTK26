@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://btcs5ahjh82y4"
+path="res://.godot/imported/MUS_7_We Are Indeed Close_GOOD.wav-614be360e3650e2ecb2d264b9347b8fa.sample"
+
+[deps]
+
+source_file="res://audio/music/MUS_7_We Are Indeed Close_GOOD.wav"
+dest_files=["res://.godot/imported/MUS_7_We Are Indeed Close_GOOD.wav-614be360e3650e2ecb2d264b9347b8fa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

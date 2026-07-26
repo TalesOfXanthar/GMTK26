@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://djj3dh4o2vxux"
+path="res://.godot/imported/MUS_3_Infinite Mirror.wav-28d8e7c89aa646866f14a16971e2aa23.sample"
+
+[deps]
+
+source_file="res://audio/music/MUS_3_Infinite Mirror.wav"
+dest_files=["res://.godot/imported/MUS_3_Infinite Mirror.wav-28d8e7c89aa646866f14a16971e2aa23.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
