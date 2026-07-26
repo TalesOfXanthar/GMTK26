@@ -4,11 +4,12 @@
 [ext_resource type="Script" uid="uid://vajullvc3lxd" path="res://scenes/item.gd" id="1_s8enn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44uij"]
-size = Vector2(16, 16)
+size = Vector2(24, 24)
 
 [node name="Item" type="Control" unique_id=373850001 node_paths=PackedStringArray("rect", "highlight_rect", "area", "item_sprite")]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 script = ExtResource("1_s8enn")
 rect = NodePath("ColorRect")
 highlight_rect = NodePath("HighlightRect")
@@ -34,6 +35,7 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
+mouse_filter = 2
 color = Color(0.26244184, 0.26244184, 0.26244184, 0.51900005)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=860139743]

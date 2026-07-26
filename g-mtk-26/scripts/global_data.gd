@@ -18,6 +18,8 @@ var item_attached : Dictionary
 var item_hovering_over : Dictionary
 var item_attached_sprite : Sprite2D
 
+var confirmed_took_item = false
+
 var engine_overheat := 0.0
 
 
@@ -57,6 +59,16 @@ func _ready() -> void:
 	add_child(item_attached_sprite)
 	item_attached_sprite.hide()
 	item_attached_sprite.z_index = -3
+	
+func _input(event: InputEvent) -> void:
+	if is_item_attached == true:
+		item_attached_sprite.position = get_viewport().get_mouse_position()
+		item_attached_sprite.z_index = 10
+		if Input.is_action_just_released("mouse_left_click"):
+			is_item_attached = false
+			item_attached_sprite.hide()
+			item_attached_sprite.z_index = -3
+			dropped_item.emit()
 
 func _process(delta: float) -> void:
 	if fade_in_active == true:	
@@ -65,9 +77,6 @@ func _process(delta: float) -> void:
 	if fade_out_active == true:	
 		var percent_completed = 1.0 - (timer.time_left / timer.wait_time)
 		fade_out_rect.color = Color(0, 0, 0, percent_completed)
-	if is_item_attached == true:
-		item_attached_sprite.position = get_viewport().get_mouse_position()
-		item_attached_sprite.z_index = 10
 	
 	
 

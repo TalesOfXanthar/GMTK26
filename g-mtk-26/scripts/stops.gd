@@ -4,6 +4,7 @@ class_name Stops
 var input_enter_monitoring = false
 
 var stop_id : String
+var temp_stop_id_for_planets = null
 
 @export var interaction_scene : PackedScene
 @export var gui_canvas_layer : CanvasLayer
@@ -109,6 +110,9 @@ func stop_area_exited(useless_var, encounter_id):
 func start_interaction():
 	GlobalData.fade_out_completed.disconnect(start_interaction)
 	
+	if temp_stop_id_for_planets	!= null:
+		stop_id = temp_stop_id_for_planets
+	
 	if area_dict[stop_id]["repeat_state"] == 1:
 		get_node(area_dict[stop_id]["node_name"]).body_entered.disconnect(stop_area_entered)
 		input_enter_monitoring = false
@@ -117,6 +121,7 @@ func start_interaction():
 		label_deleted = true
 	
 	if "planet" in stop_id:
+		temp_stop_id_for_planets = stop_id
 		stop_id = "planet"	
 	
 	GlobalData.encounter_identifier = stop_id

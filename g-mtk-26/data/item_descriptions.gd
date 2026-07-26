@@ -1,6 +1,6 @@
 extends Node
 
-var item_desc = {
+var item_desc := {
 	"locked": {
 		"sprite": "res://visual_assets/item_sprites/empty.png",
 		"moveable" : false,
@@ -9,7 +9,7 @@ var item_desc = {
 	"empty": {
 		"sprite": "res://visual_assets/item_sprites/empty.png",
 		"moveable" : false,
-		"template": {"empty":null}
+		"template": {"empty":{"damaged":false}}
 	},
 	"fuel_canister": {
 		"sprite": "res://visual_assets/item_sprites/fuel_canister.png",
@@ -20,12 +20,20 @@ var item_desc = {
 		"template": {"fuel":5}
 	},
 	"thruster": {
-		"sprite": "res://visual_assets/item_sprites/fuel_canister.png",
+		"sprite": "res://visual_assets/item_sprites/booster.png",
 		"moveable" : true,
 		"tags": [
 			
 		],
-		"template": {"fuel":5}
+		"template": {"thruster":{"damaged": false}}
+	},
+	"repair_scrap": {
+		"sprite": "res://visual_assets/item_sprites/repair_scrap.png",
+		"moveable" : true,
+		"tags": [
+			
+		],
+		"template": {"repair_scrap":{"damaged": false}}
 	},
 }
 

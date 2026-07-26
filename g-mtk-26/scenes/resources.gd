@@ -1,6 +1,13 @@
 extends Node
 
 @export var resource_text : RichTextLabel
+@export var resource_ship_layer : CanvasLayer
+
+func _input(event: InputEvent) -> void:
+	if event.is_action("tab"):
+		resource_ship_layer.show()
+	if event.is_action_released("tab"):
+		resource_ship_layer.hide()
 
 func _process(delta: float) -> void:
 	var max_fuel := 0.0

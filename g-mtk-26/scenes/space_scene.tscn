@@ -35,8 +35,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="ResourceShipLayer" type="CanvasLayer" parent="." unique_id=941754091]
 layer = 2
+visible = false
 
-[node name="Resources" parent="ResourceShipLayer" unique_id=1947465134 instance=ExtResource("1_ntytb")]
+[node name="Resources" parent="ResourceShipLayer" unique_id=1947465134 node_paths=PackedStringArray("resource_ship_layer") instance=ExtResource("1_ntytb")]
+resource_ship_layer = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1102736199]
 follow_viewport_enabled = true

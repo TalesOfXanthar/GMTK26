@@ -4,12 +4,13 @@
 [ext_resource type="Script" uid="uid://bcqdkwd1c2j28" path="res://scenes/resources.gd" id="1_hkvus"]
 [ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual_assets/theme_assets/text_theme.tres" id="2_dqf23"]
 
-[node name="Resources" type="Node2D" unique_id=2001509951 node_paths=PackedStringArray("resource_text")]
+[node name="Resources" type="Control" unique_id=988296465 node_paths=PackedStringArray("resource_text")]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_hkvus")
 resource_text = NodePath("RichTextLabel")
 
 [node name="Control" type="Control" parent="." unique_id=1292933437]
-layout_mode = 3
 anchors_preset = 0
 offset_left = 256.0
 offset_top = 8.0
@@ -21,6 +22,7 @@ position = Vector2(320, 64)
 texture = ExtResource("1_3m1lq")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2028853108]
+layout_mode = 0
 offset_left = 264.0
 offset_top = 16.0
 offset_right = 376.0

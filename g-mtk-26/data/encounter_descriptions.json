@@ -58,9 +58,8 @@
 			"descriptions": 
 				[
 				"You stop over a planet to let your engines cool.",
-				"Its uneventful, but the view is beautiful.",
 			],
-			"question": "Will there be anything left here after the supernova?",
+			"question": "Its uneventful, but the view is beautiful.",
 			"choices": 
 				{
 				"1. Leave": 
