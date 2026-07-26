@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://b58icyhtwyokt" path="res://visual_assets/space_sprites/greenplaney.webp" id="15_2dxlc"]
 [ext_resource type="PackedScene" uid="uid://bmt0eg8f70xe4" path="res://scenes/ship_inventory.tscn" id="15_cbu5l"]
 [ext_resource type="PackedScene" uid="uid://58dxgla25ysd" path="res://scenes/asteroid.tscn" id="15_ouejp"]
+[ext_resource type="Texture2D" uid="uid://o77thvli0p2o" path="res://visual_assets/arrow.png" id="17_223mp"]
 [ext_resource type="AudioStream" uid="uid://1jg0cpovypcw" path="res://audio/music/MUS_4_Rest Now, Starchild.wav" id="19_1dowx"]
 [ext_resource type="Script" uid="uid://dogs1qvwcnwnf" path="res://scenes/countdown_timer.gd" id="20_clm4c"]
 [ext_resource type="AudioStream" uid="uid://dv0vs51jfftyr" path="res://audio/music/MUS_1_From The Spheres.wav" id="20_ofi2h"]
@@ -425,6 +426,11 @@ position = Vector2(48, 13.999987)
 scale = Vector2(1, 0.999999)
 texture = ExtResource("8_mxyie")
 
+[node name="Arrow" type="Sprite2D" parent="CanvasLayer/Space/Stops" unique_id=472326771]
+position = Vector2(2285, 2005)
+rotation = 1.415462
+texture = ExtResource("17_223mp")
+
 [node name="LabelTimer" type="Timer" parent="CanvasLayer/Space" unique_id=1118292039]
 one_shot = true
 
@@ -475,6 +481,19 @@ volume_db = 8.904
 autoplay = true
 playback_type = 1
 
+[node name="Tutorial" type="Label" parent="CountdownLayer/GiantCountdown" unique_id=1055714963]
+visible = false
+layout_mode = 0
+offset_left = -61.0
+offset_top = 17.0
+offset_right = 110.0
+offset_bottom = 42.0
+theme = ExtResource("7_6scvu")
+text = "Go on young starchild, before the supernova consumes you"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="CountdownTimer" type="Timer" parent="CountdownLayer" unique_id=487332361]
 wait_time = 300.0
 one_shot = true
@@ -489,3 +508,52 @@ layer = 2
 script = ExtResource("29_223mp")
 
 [node name="ShipInventory" parent="ItemShipLayer" unique_id=1465073727 instance=ExtResource("15_cbu5l")]
+
+[node name="TopBound" type="Label" parent="." unique_id=911377168]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -25.0
+offset_right = 190.0
+offset_bottom = -2.0
+text = "Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events"
+
+[node name="rightBound" type="Label" parent="." unique_id=851890991]
+layout_mode = 0
+offset_left = 6216.0
+offset_top = 6.0
+offset_right = 6256.0
+offset_bottom = 3903.0
+text = "Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events"
+autowrap_mode = 2
+
+[node name="bottom bound" type="Label" parent="." unique_id=1632094896]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3655.0
+offset_right = 6391.0
+offset_bottom = 3678.0
+text = "Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events"
+
+[node name="leftbound" type="Label" parent="." unique_id=250456012]
+layout_mode = 0
+offset_left = -50.0
+offset_top = -93.0
+offset_right = -10.0
+offset_bottom = 3804.0
+text = "Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events Go find the other planets/events"
+autowrap_mode = 2
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=561964713]
+position = Vector2(4532, 1698)
+rotation = 0.20943952
+texture = ExtResource("17_223mp")
+
+[node name="Arrow2" type="Sprite2D" parent="." unique_id=188284103]
+position = Vector2(4391, 2207)
+rotation = 1.7575465
+texture = ExtResource("17_223mp")
+
+[node name="Arrow3" type="Sprite2D" parent="." unique_id=1448599547]
+position = Vector2(3233, 1989)
+rotation = 1.5009831
+texture = ExtResource("17_223mp")

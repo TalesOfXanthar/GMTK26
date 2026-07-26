@@ -111,7 +111,7 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if current_fuel <= 0:
-		get_node("/root/SceneManager/SpaceScene/CountdownLayer/CountdownTimer").time_left = 0
+		get_node("/root/SceneManager/SpaceScene/CountdownLayer/CountdownTimer").time_left = 0.0
 	
 	if fade_in_active == true:	
 		var percent_completed = 1.0 - (timer.time_left / timer.wait_time)

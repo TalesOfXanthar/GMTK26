@@ -6,7 +6,6 @@ extends Label
 @export var gui_canvas_layer : CanvasLayer
 @export var stops : Stops
 
-
 func _ready() -> void:
 	GlobalData.stop_countdown.connect(timer_pause_unpause.bind(true))
 	GlobalData.start_countdown.connect(timer_pause_unpause.bind(false))
@@ -53,8 +52,11 @@ func _process(delta: float) -> void:
 	if minutes_left == 0 and seconds_left == 60:
 		$AudioStreamPlayer.stop()
 		$Starchild.play()
-	else:
-		pass 
+	if minutes_left == 4 and seconds_left == 40:
+		$Tutorial.show()
+	elif minutes_left ==4 and seconds_left == 15:
+		$Tutorial.hide()
+		 
 	#if minutes_left <= 5:
 	#	add_theme_font_size_override("font_size", 20)
 	if minutes_left <= 0:
