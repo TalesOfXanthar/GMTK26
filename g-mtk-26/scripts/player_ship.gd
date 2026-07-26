@@ -48,3 +48,5 @@ func _physics_process(delta: float) -> void:
 	
 	unrounded_position = unrounded_position.clamp(position - Vector2.ONE, position + Vector2.ONE)
 	
+	if position.x > 5500:
+		GlobalData.win.emit()

@@ -4,6 +4,8 @@ signal event_triggered(event_type)
 
 signal fade_out_completed
 
+signal win
+
 signal take_hit
 
 var input_movement_monitoring := true
@@ -108,8 +110,8 @@ func _input(event: InputEvent) -> void:
 			item_attached_sprite.top_level = false
 
 func _process(delta: float) -> void:
-	if current_fuel == 0:
-		pass
+	if current_fuel <= 0:
+		get_node("/root/SceneManager/SpaceScene/CountdownLayer/CountdownTimer").time_left = 0
 	
 	if fade_in_active == true:	
 		var percent_completed = 1.0 - (timer.time_left / timer.wait_time)

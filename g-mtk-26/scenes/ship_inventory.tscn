@@ -3,14 +3,20 @@
 [ext_resource type="Script" uid="uid://k4flk1ff2ogf" path="res://scenes/ship_inventory.gd" id="1_bkjup"]
 [ext_resource type="Texture2D" uid="uid://cb51dsdledo4e" path="res://visual_assets/gui_elements/inventory.png" id="1_olku4"]
 [ext_resource type="PackedScene" uid="uid://3oa80feqxpn8" path="res://scenes/item.tscn" id="2_xb4i3"]
+[ext_resource type="Texture2D" uid="uid://11xcfp5qm8wm" path="res://visual_assets/gui_elements/ship.png" id="3_832n6"]
 
 [node name="ShipInventory" type="Node2D" unique_id=1465073727]
 script = ExtResource("1_bkjup")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=467354945]
-position = Vector2(64, 64)
+position = Vector2(64, 64.05082)
 rotation = 3.1415927
+scale = Vector2(1, 1.1342828)
 texture = ExtResource("1_olku4")
+
+[node name="Ship" type="Sprite2D" parent="." unique_id=1138403592]
+position = Vector2(64, 64)
+texture = ExtResource("3_832n6")
 
 [node name="ItemList" type="Node" parent="." unique_id=1580091139]
 

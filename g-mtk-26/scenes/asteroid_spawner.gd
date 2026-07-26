@@ -19,6 +19,12 @@ var spawn_cords_belt_2 = [
 	Vector2(2768, 0),
 ]
 
+var spawn_cords_belt_3 = [
+	Vector2(5248, 0),
+	Vector2(5120, 0),
+	Vector2(5169, 0),
+]
+
 func _ready() -> void:
 	belt_1_timer.timeout.connect(_on_asteroid_timer_timeout1)
 	belt_1_timer.timeout.connect(_on_asteroid_timer_timeout2)
@@ -45,8 +51,8 @@ func _on_asteroid_timer_timeout2():
 
 func _on_asteroid_timer_timeout3():
 	var asteroid : RigidBody2D = asteroid_scene.instantiate()
-	asteroid.position = spawn_cords_belt_2.pick_random()
+	asteroid.position = spawn_cords_belt_3.pick_random()
 	asteroid.position.x += randi_range(-200, 20)
-	asteroid.linear_velocity = (Vector2(0,100 + randi_range(-1, 1)))
+	asteroid.linear_velocity = (Vector2(0,100 + randi_range(-10, 10)))
 	add_child(asteroid)
-	belt_2_timer.wait_time = randf() + 0.20
+	belt_3_timer.wait_time = randf() + 0.20

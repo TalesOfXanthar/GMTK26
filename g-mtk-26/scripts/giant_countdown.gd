@@ -13,11 +13,23 @@ func _ready() -> void:
 	countdown_timer.timeout.connect(end_game)
 
 
+func win_game():
+	timer_pause_unpause(true)
+	GlobalData.input_movement_monitoring = false
+	GlobalData.fade_out()
+	GlobalData.encounter_identifier = "win"
+	GlobalData.fade_out_completed.connect(start_win_interaction)
+
 func end_game():
 	GlobalData.input_movement_monitoring = false
 	GlobalData.fade_out()
 	GlobalData.encounter_identifier = "supernova"
 	GlobalData.fade_out_completed.connect(start_end_interaction)
+
+func start_win_interaction():
+	GlobalData.fade_out_completed.disconnect(start_win_interaction)
+	stops.stop_id = "win"
+	stops.start_interaction()
 
 func start_end_interaction():
 	GlobalData.fade_out_completed.disconnect(start_end_interaction)

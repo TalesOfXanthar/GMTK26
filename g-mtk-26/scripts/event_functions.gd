@@ -38,3 +38,19 @@ func lose_fuel_add_translator():
 
 func damage():
 	GlobalData.take_hit.emit()
+
+func lose_fuel_medium_add_scrap():
+	GlobalData.current_fuel -= 2
+	ship_inv.add_item("repair_scrap")
+
+func lose_fuel_gain_scrap_damage():
+	GlobalData.current_fuel -= 1
+	ship_inv.add_item("repair_scrap")
+	GlobalData.take_hit.emit()
+
+func lose_fuel_add_scrap():
+	GlobalData.current_fuel -= 1
+	ship_inv.add_item("repair_scrap")
+
+func lose_fuel_small():
+	GlobalData.current_fuel -= 1

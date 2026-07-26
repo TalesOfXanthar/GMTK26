@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://crpq57gia7ovw"]
 
+[ext_resource type="Script" uid="uid://b6l67a62muibh" path="res://scenes/scene_manager.gd" id="1_65mdo"]
 [ext_resource type="PackedScene" uid="uid://djqf6p1tkkgcj" path="res://scenes/space_scene.tscn" id="1_we8k5"]
 
 [node name="SceneManager" type="Node" unique_id=1948687918]
+script = ExtResource("1_65mdo")
 
 [node name="SpaceScene" parent="." unique_id=1545532700 instance=ExtResource("1_we8k5")]
 
