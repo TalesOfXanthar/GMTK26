@@ -21,9 +21,9 @@ func _process(delta: float) -> void:
 	if current_fuel <= 0:	
 		percentage_max_fuel = 0
 	else:
-		percentage_max_fuel = 100 * (current_fuel / max_fuel)
+		percentage_max_fuel = 100 * (GlobalData.current_fuel / GlobalData.total_fuel)
 	
 	
 	
-	resource_text.text = "Fuel: " + str(snapped(current_fuel, 0.01)) + " (" + str(snapped(percentage_max_fuel, 1)) + "% Max)
+	resource_text.text = "Fuel: " + str(snapped(GlobalData.current_fuel, 0.01)) + " (" + str(snapped(percentage_max_fuel, 1)) + "% Max)
 Engine Overheat: " + str(snapped(GlobalData.engine_overheat, 0.01)) + "%"

@@ -17,11 +17,12 @@ func _physics_process(delta: float) -> void:
 		rotation_velocity += lerpf(rotation_velocity, (rotation_direction*PI/360), (5.625*PI)/360)
 		rotation_velocity = clampf(rotation_velocity, -(11.25*PI)/360, (11.25*PI)/360)
 		
-		GlobalData.engine_overheat += 0.002
-		for item in GlobalData.inventory:
-			if item.keys()[0] == "fuel_canister":
-				item["fuel_canister"] -= 0.002
-				break
+		GlobalData.engine_overheat += 0.01
+		#for item in GlobalData.inventory:
+		#	if item.keys()[0] == "fuel_canister":
+		#		item["fuel_canister"] -= 0.002
+		#		break
+		GlobalData.current_fuel -=0.002
 	else:
 		rotation_velocity = 0
 	rotation += rotation_velocity
@@ -30,11 +31,12 @@ func _physics_process(delta: float) -> void:
 		var movement_vector = transform.x * movement_direction * 40
 		velocity = velocity.move_toward(movement_vector, 5)
 		
-		GlobalData.engine_overheat += 0.002
-		for item in GlobalData.inventory:
-			if item.keys()[0] == "fuel_canister":
-				item["fuel_canister"] -= 0.002
-				break
+		GlobalData.engine_overheat += 0.01
+		#for item in GlobalData.inventory:
+		#	if item.keys()[0] == "fuel_canister":
+		#		item["fuel_canister"] -= 0.002
+		#		break
+		GlobalData.current_fuel -= 0.002
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, 1)
 	

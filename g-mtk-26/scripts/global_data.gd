@@ -42,8 +42,8 @@ var inventory = [
 		{"empty": {"damaged":false}},
 		{"locked": null},
 		{"locked": null},
-		{"empty": {"damaged":false}},
-		{"empty": {"damaged":false}},
+		{"fuel_canister": 5},
+		{"fuel_canister": 5},
 		{"empty": {"damaged":false}},
 		{"locked": null},
 		{"empty": {"damaged":false}},
@@ -67,6 +67,13 @@ var fade_in_active := false
 var fade_out_active := false
 
 func _ready() -> void:
+	
+	for item in GlobalData.inventory:
+		if item.keys()[0] == "fuel_canister":
+			total_fuel += 5
+			current_fuel += item["fuel_canister"]
+	
+	
 	item_attached_sprite = Sprite2D.new()
 	if get_node("/root/SceneManager/FadeLayer") != null:
 		get_node("/root/SceneManager/FadeLayer").add_child(item_attached_sprite)
@@ -101,6 +108,9 @@ func _input(event: InputEvent) -> void:
 			item_attached_sprite.top_level = false
 
 func _process(delta: float) -> void:
+	if current_fuel == 0:
+		pass
+	
 	if fade_in_active == true:	
 		var percent_completed = 1.0 - (timer.time_left / timer.wait_time)
 		fade_in_rect.color = Color(0, 0, 0, 1 - percent_completed)
@@ -122,6 +132,8 @@ func fade_timeout():
 		fade_in()
 
 func fade_in():
+	if get_node("/root/SceneManager/FadeLayer") != null:
+		get_node("/root/SceneManager/FadeLayer").add_child(item_attached_sprite)
 	fade_in_rect = get_node("/root/SceneManager/FadeLayer/FadeInRect")
 	fade_in_rect.color = Color(0, 0, 0, 1)
 	fade_in_rect.show()
@@ -132,6 +144,8 @@ func fade_in():
 	timer.start()
 
 func fade_out():
+	if get_node("/root/SceneManager/FadeLayer") != null:
+		get_node("/root/SceneManager/FadeLayer").add_child(item_attached_sprite)
 	fade_out_rect = get_node("/root/SceneManager/FadeLayer/FadeOutRect")
 	fade_out_rect.color = Color(0, 0, 0, 0)
 	fade_out_rect.show()

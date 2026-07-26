@@ -10,15 +10,11 @@
 			"question": "Maybe it could've ended differently?",
 			"choices": 
 				{
-				"1. Restart": 
-					{
-					"1": ["The game was restarted.", "restart"],
-					},
-				"2. Title Screen": 
+				"1. Title Screen": 
 					{
 					"1": ["The game went back to title screen.", "title"],
 					},
-				"3. Quit":
+				"2. Quit":
 					{
 					"1": ["The game was quit.", "quit"],
 					},
@@ -114,6 +110,27 @@
 				"2. Ignore the satellite and robot": 
 					{
 					"0.5": ["You attempt to pull away from the strange satellite, but it quickly changes trajectory as you are coasting beside it and you are unable to avoid it. [Ship Damage]", "damage"],
+					},
+			},
+		},
+	"stranded_astro":
+		{
+			"sprite_path": "res://visual_assets/encounters/strandeda.png",
+			"descriptions": 
+				[
+				"While you let your engine cool, you see an astronaut drifting uncontrollably through space with a broken tether hooked to their suit.", 
+				"You can not tell if they are dead or alive.",
+				],
+			"question": "What will you do?",
+			"choices": 
+				{
+				"1. Attempt a rescue": 
+					{
+					"0.5": ["You engage your thrusters and intercept the astronaut, managing to pull them aboard. They are unconscious, but you are able to resuscitate them. [Fuel - 1, Translator Added]", "lose_fuel_add_translator"],
+					},
+				"2. Leave them behind": 
+					{
+					"0.5": ["Not wanting to risk the extra fuel, you abandon the astronaut.", "nothing"],
 					},
 			},
 		},

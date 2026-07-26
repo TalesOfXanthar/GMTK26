@@ -16,11 +16,56 @@
 [ext_resource type="Texture2D" uid="uid://dyppjv74qxjhs" path="res://visual_assets/space_sprites/red_cat.webp" id="11_rbo46"]
 [ext_resource type="Texture2D" uid="uid://cu82lgj77fpwn" path="res://visual_assets/space_sprites/Shipfleet.webp" id="13_kt33t"]
 [ext_resource type="Script" uid="uid://d0xt0mc1kbb3y" path="res://scenes/asteroid_spawner.gd" id="14_1wwvg"]
+[ext_resource type="Texture2D" uid="uid://dq0pbh4cnggnf" path="res://visual_assets/space_sprites/pink_planet.webp" id="14_gwn1u"]
+[ext_resource type="Texture2D" uid="uid://ovpba00fdwt" path="res://visual_assets/space_sprites/signalsheet.webp" id="14_iiats"]
 [ext_resource type="PackedScene" uid="uid://bmt0eg8f70xe4" path="res://scenes/ship_inventory.tscn" id="15_cbu5l"]
 [ext_resource type="PackedScene" uid="uid://58dxgla25ysd" path="res://scenes/asteroid.tscn" id="15_ouejp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44uij"]
-radius = 20.024984
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwn1u"]
+atlas = ExtResource("14_iiats")
+region = Rect2(0, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dxlc"]
+atlas = ExtResource("14_iiats")
+region = Rect2(11, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dowx"]
+atlas = ExtResource("14_iiats")
+region = Rect2(0, 11, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clm4c"]
+atlas = ExtResource("14_iiats")
+region = Rect2(11, 11, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgn6b"]
+atlas = ExtResource("14_iiats")
+region = Rect2(0, 22, 11, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ob8p0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwn1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dxlc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dowx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clm4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgn6b")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="SpaceScene" type="Node" unique_id=1816419304]
 
@@ -49,14 +94,14 @@ texture = ExtResource("1_ma5ay")
 [node name="CharacterBody2D" parent="CanvasLayer/Space" unique_id=1661900380 instance=ExtResource("1_rcdtf")]
 z_index = 1
 texture_filter = 1
-position = Vector2(3088, 1976)
+position = Vector2(2496, 2024)
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/Space" unique_id=1144326815 node_paths=PackedStringArray("player")]
 texture_filter = 1
 script = ExtResource("3_vu1g8")
 player = NodePath("../CharacterBody2D")
 
-[node name="Stops" type="Node2D" parent="CanvasLayer/Space" unique_id=1228552937 node_paths=PackedStringArray("gui_canvas_layer", "encounter_sfx", "label_timer", "placeholder_planet", "blue_planet", "red_cat", "ghost_fleet")]
+[node name="Stops" type="Node2D" parent="CanvasLayer/Space" unique_id=1228552937 node_paths=PackedStringArray("gui_canvas_layer", "encounter_sfx", "label_timer", "placeholder_planet", "blue_planet", "red_cat", "ghost_fleet", "stranded")]
 script = ExtResource("1_4c1q5")
 interaction_scene = ExtResource("2_jsx7o")
 gui_canvas_layer = NodePath("../../../GuiCanvasLayer")
@@ -66,6 +111,7 @@ placeholder_planet = NodePath("PlaceholderPlanet")
 blue_planet = NodePath("BluePlanet")
 red_cat = NodePath("RedCat")
 ghost_fleet = NodePath("GhostFleet")
+stranded = NodePath("Stranded")
 
 [node name="PlaceholderPlanet" type="Area2D" parent="CanvasLayer/Space/Stops" unique_id=1623959098]
 visible = false
@@ -228,22 +274,64 @@ position = Vector2(48, 13.999987)
 scale = Vector2(1, 0.999999)
 texture = ExtResource("8_mxyie")
 
-[node name="GhostFleet2" type="Area2D" parent="CanvasLayer/Space/Stops" unique_id=1550154143]
+[node name="Robot" type="Area2D" parent="CanvasLayer/Space/Stops" unique_id=362791802]
 position = Vector2(2472, 2064)
 collision_layer = 2
 collision_mask = 2
 priority = 1
 
-[node name="Planet" type="Sprite2D" parent="CanvasLayer/Space/Stops/GhostFleet2" unique_id=2089365414]
-position = Vector2(936, -8)
+[node name="Planet" type="Sprite2D" parent="CanvasLayer/Space/Stops/Robot" unique_id=1909004930]
+position = Vector2(1976, 144)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("13_kt33t")
+texture = ExtResource("14_gwn1u")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Space/Stops/GhostFleet2" unique_id=752544989]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Space/Stops/Robot" unique_id=225791559]
 position = Vector2(936, -8)
 shape = SubResource("CircleShape2D_44uij")
 
-[node name="Label" type="Label" parent="CanvasLayer/Space/Stops/GhostFleet2" unique_id=1135385386]
+[node name="Label" type="Label" parent="CanvasLayer/Space/Stops/Robot" unique_id=1523402316]
+visible = false
+z_index = 1
+offset_left = 1944.0
+offset_top = 72.0
+offset_right = 2040.0
+offset_bottom = 104.0
+theme = ExtResource("7_6scvu")
+text = "Aphrodiete
+[Enter]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer/Space/Stops/Robot/Label" unique_id=995020445]
+z_index = -1
+z_as_relative = false
+points = PackedVector2Array(48, 26, 32, 48)
+width = 1.0
+default_color = Color(0.09803922, 0.29803923, 0.09803922, 1)
+
+[node name="EnterBox" type="Sprite2D" parent="CanvasLayer/Space/Stops/Robot/Label" unique_id=2024862402]
+z_index = -1
+position = Vector2(48, 13.999987)
+scale = Vector2(1, 0.999999)
+texture = ExtResource("8_mxyie")
+
+[node name="Stranded" type="Area2D" parent="CanvasLayer/Space/Stops" unique_id=1550154143]
+position = Vector2(1504, 2040)
+collision_layer = 2
+collision_mask = 2
+priority = 1
+
+[node name="Planet" type="AnimatedSprite2D" parent="CanvasLayer/Space/Stops/Stranded" unique_id=1577637870]
+position = Vector2(936, -8)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_ob8p0")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Space/Stops/Stranded" unique_id=752544989]
+position = Vector2(936, -8)
+shape = SubResource("CircleShape2D_44uij")
+
+[node name="Label" type="Label" parent="CanvasLayer/Space/Stops/Stranded" unique_id=1135385386]
 visible = false
 z_index = 1
 offset_left = 904.0
@@ -251,19 +339,19 @@ offset_top = -72.0
 offset_right = 1000.0
 offset_bottom = -40.0
 theme = ExtResource("7_6scvu")
-text = "Fleet of Still Ships
+text = "Signal
 [Enter]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Line2D" type="Line2D" parent="CanvasLayer/Space/Stops/GhostFleet2/Label" unique_id=1593421440]
+[node name="Line2D" type="Line2D" parent="CanvasLayer/Space/Stops/Stranded/Label" unique_id=1593421440]
 z_index = -1
 z_as_relative = false
-points = PackedVector2Array(48, 26, 32, 48)
+points = PackedVector2Array(48, 26, 32, 64)
 width = 1.0
 default_color = Color(0.09803922, 0.29803923, 0.09803922, 1)
 
-[node name="EnterBox" type="Sprite2D" parent="CanvasLayer/Space/Stops/GhostFleet2/Label" unique_id=541484247]
+[node name="EnterBox" type="Sprite2D" parent="CanvasLayer/Space/Stops/Stranded/Label" unique_id=541484247]
 z_index = -1
 position = Vector2(48, 13.999987)
 scale = Vector2(1, 0.999999)

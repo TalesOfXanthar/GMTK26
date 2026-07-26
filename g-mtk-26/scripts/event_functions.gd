@@ -31,3 +31,6 @@ func reset_heat():
 func reset_heat_thruster():
 	GlobalData.engine_overheat = 0.0
 	ship_inv.add_item("thruster")
+
+func lose_fuel_add_translator():
+	ship_inv.add_item("translator")

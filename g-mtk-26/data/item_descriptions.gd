@@ -37,6 +37,14 @@ var item_desc := {
 		],
 		"template": {"repair_scrap":":)"}
 	},
+	"translator": {
+		"sprite": "res://visual_assets/item_sprites/translator.png",
+		"moveable" : true,
+		"tags": [
+			
+		],
+		"template": {"translator":":)"}
+	},
 }
 
 var slot_neighbors = {

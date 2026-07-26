@@ -27,6 +27,8 @@ var label_deleted := false
 @export var blue_planet : Area2D
 @export var red_cat : Area2D
 @export var ghost_fleet : Area2D
+@export var stranded : Area2D
+@export var robot : Area2D
 
 var area_dict = {
 	"placeholder_planet": {
@@ -41,12 +43,20 @@ var area_dict = {
 		"node_name": "BluePlanet"
 	},
 	"red_cat": {
-		"repeat_state": 0,
+		"repeat_state": 1,
 		"node_name": "RedCat"
 	},
 	"ghost_fleet": {
 		"repeat_state": 1,
 		"node_name": "GhostFleet"
+	},
+	"stranded": {
+		"repeat_state": 2,
+		"node_name": "Stranded"
+	},
+	"robot": {
+		"repeat_state": 1,
+		"node_name": "Robot"
 	}
 }
 
@@ -64,6 +74,10 @@ func _ready() -> void:
 	red_cat.body_exited.connect(stop_area_exited.bind("red_cat"))
 	ghost_fleet.body_entered.connect(stop_area_entered.bind("ghost_fleet"))
 	ghost_fleet.body_exited.connect(stop_area_exited.bind("ghost_fleet"))
+	stranded.body_entered.connect(stop_area_entered.bind("stranded"))
+	stranded.body_exited.connect(stop_area_exited.bind("stranded"))
+	robot.body_entered.connect(stop_area_entered.bind("robot"))
+	robot.body_exited.connect(stop_area_exited.bind("robot"))
 
 
 
