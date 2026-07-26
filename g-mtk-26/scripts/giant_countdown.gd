@@ -11,6 +11,8 @@ func _ready() -> void:
 	GlobalData.stop_countdown.connect(timer_pause_unpause.bind(true))
 	GlobalData.start_countdown.connect(timer_pause_unpause.bind(false))
 	countdown_timer.timeout.connect(end_game)
+	$AudioStreamPlayer.play()
+	print("start")
 
 
 func end_game():
@@ -36,7 +38,7 @@ func _process(delta: float) -> void:
 	else:
 		text = str(minutes_left) + ":0" + str(seconds_left)
 	
-	if seconds_left <= 60:
+	if minutes_left == 4 and seconds_left == 50:
 		$AudioStreamPlayer.stop()
 		$Starchild.play()
 	else:
