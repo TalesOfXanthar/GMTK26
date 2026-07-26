@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://djqf6p1tkkgcj"]
 
 [ext_resource type="Script" uid="uid://bqk5pgrej133b" path="res://scripts/stops.gd" id="1_4c1q5"]
+[ext_resource type="Texture2D" uid="uid://cxmx2pdkt0t0e" path="res://visual_assets/stars.jpg" id="1_7qi47"]
 [ext_resource type="Texture2D" uid="uid://drrrlne8jnbs3" path="res://visual_assets/placeholder_sprites/space.png" id="1_ma5ay"]
 [ext_resource type="PackedScene" uid="uid://kb6oyn3bkj1n" path="res://scenes/resources.tscn" id="1_ntytb"]
 [ext_resource type="PackedScene" uid="uid://chajvj4vq38bf" path="res://scenes/player_ship.tscn" id="1_rcdtf"]
@@ -19,7 +20,13 @@ radius = 20.024984
 
 [node name="SpaceScene" type="Node" unique_id=1816419304]
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1148311986]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_7qi47")
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1663616680]
+visible = false
 z_index = -4
 z_as_relative = false
 offset_right = 6208.0
