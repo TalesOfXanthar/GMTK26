@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://yu1fmj1xxffm"]
+
+[ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual_assets/theme_assets/text_theme.tres" id="1_mqjse"]
+
+[node name="CreditsBox" type="RichTextLabel" unique_id=2144529674]
+custom_minimum_size = Vector2(1, 1)
+offset_right = 196.0
+offset_bottom = 217.0
+theme = ExtResource("1_mqjse")
+bbcode_enabled = true
+text = "Novascape was created and developed for the GMTK game jam 2026 by:
+
+TalesOfXanthar
+Chanterelle64
+James Mac
+Aidan Lynch
+Neon Voxel
+
+
+Programming:
+TalesOfXanthar
+Chanterelle64
+
+Art:
+James Mac
+Aidan Lynch
+
+Writing:
+James Mac
+
+Music:
+Neon Voxel
+
+No generative AI was used in the creation of this game"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+visible_characters_behavior = 1
