@@ -34,3 +34,7 @@ func reset_heat_thruster():
 
 func lose_fuel_add_translator():
 	ship_inv.add_item("translator")
+	GlobalData.current_fuel -= 1
+
+func damage():
+	GlobalData.take_hit.emit()

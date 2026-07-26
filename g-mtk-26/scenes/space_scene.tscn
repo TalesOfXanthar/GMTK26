@@ -18,11 +18,12 @@
 [ext_resource type="Script" uid="uid://d0xt0mc1kbb3y" path="res://scenes/asteroid_spawner.gd" id="14_1wwvg"]
 [ext_resource type="Texture2D" uid="uid://dq0pbh4cnggnf" path="res://visual_assets/space_sprites/pink_planet.webp" id="14_gwn1u"]
 [ext_resource type="Texture2D" uid="uid://ovpba00fdwt" path="res://visual_assets/space_sprites/signalsheet.webp" id="14_iiats"]
+[ext_resource type="Texture2D" uid="uid://b58icyhtwyokt" path="res://visual_assets/space_sprites/greenplaney.webp" id="15_2dxlc"]
 [ext_resource type="PackedScene" uid="uid://bmt0eg8f70xe4" path="res://scenes/ship_inventory.tscn" id="15_cbu5l"]
 [ext_resource type="PackedScene" uid="uid://58dxgla25ysd" path="res://scenes/asteroid.tscn" id="15_ouejp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44uij"]
-radius = 8.0
+radius = 32.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gwn1u"]
 atlas = ExtResource("14_iiats")
@@ -94,14 +95,14 @@ texture = ExtResource("1_ma5ay")
 [node name="CharacterBody2D" parent="CanvasLayer/Space" unique_id=1661900380 instance=ExtResource("1_rcdtf")]
 z_index = 1
 texture_filter = 1
-position = Vector2(2496, 2024)
+position = Vector2(4592, 1672)
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/Space" unique_id=1144326815 node_paths=PackedStringArray("player")]
 texture_filter = 1
 script = ExtResource("3_vu1g8")
 player = NodePath("../CharacterBody2D")
 
-[node name="Stops" type="Node2D" parent="CanvasLayer/Space" unique_id=1228552937 node_paths=PackedStringArray("gui_canvas_layer", "encounter_sfx", "label_timer", "placeholder_planet", "blue_planet", "red_cat", "ghost_fleet", "stranded")]
+[node name="Stops" type="Node2D" parent="CanvasLayer/Space" unique_id=1228552937 node_paths=PackedStringArray("gui_canvas_layer", "encounter_sfx", "label_timer", "placeholder_planet", "blue_planet", "red_cat", "ghost_fleet", "stranded", "robot", "green_planet")]
 script = ExtResource("1_4c1q5")
 interaction_scene = ExtResource("2_jsx7o")
 gui_canvas_layer = NodePath("../../../GuiCanvasLayer")
@@ -112,6 +113,8 @@ blue_planet = NodePath("BluePlanet")
 red_cat = NodePath("RedCat")
 ghost_fleet = NodePath("GhostFleet")
 stranded = NodePath("Stranded")
+robot = NodePath("Robot")
+green_planet = NodePath("GreenPlanet")
 
 [node name="PlaceholderPlanet" type="Area2D" parent="CanvasLayer/Space/Stops" unique_id=1623959098]
 visible = false
@@ -286,7 +289,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("14_gwn1u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Space/Stops/Robot" unique_id=225791559]
-position = Vector2(936, -8)
+position = Vector2(1976, 144)
 shape = SubResource("CircleShape2D_44uij")
 
 [node name="Label" type="Label" parent="CanvasLayer/Space/Stops/Robot" unique_id=1523402316]
@@ -297,7 +300,7 @@ offset_top = 72.0
 offset_right = 2040.0
 offset_bottom = 104.0
 theme = ExtResource("7_6scvu")
-text = "Aphrodiete
+text = "Aphrodite
 [Enter]"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -310,6 +313,47 @@ width = 1.0
 default_color = Color(0.09803922, 0.29803923, 0.09803922, 1)
 
 [node name="EnterBox" type="Sprite2D" parent="CanvasLayer/Space/Stops/Robot/Label" unique_id=2024862402]
+z_index = -1
+position = Vector2(48, 13.999987)
+scale = Vector2(1, 0.999999)
+texture = ExtResource("8_mxyie")
+
+[node name="GreenPlanet" type="Area2D" parent="CanvasLayer/Space/Stops" unique_id=2030424025]
+position = Vector2(2576, 1496)
+collision_layer = 2
+collision_mask = 2
+priority = 1
+
+[node name="Planet" type="Sprite2D" parent="CanvasLayer/Space/Stops/GreenPlanet" unique_id=1080529805]
+position = Vector2(1976, 144)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_2dxlc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Space/Stops/GreenPlanet" unique_id=1463051284]
+position = Vector2(1976, 144)
+shape = SubResource("CircleShape2D_44uij")
+
+[node name="Label" type="Label" parent="CanvasLayer/Space/Stops/GreenPlanet" unique_id=1046547190]
+visible = false
+z_index = 1
+offset_left = 1944.0
+offset_top = 72.0
+offset_right = 2040.0
+offset_bottom = 104.0
+theme = ExtResource("7_6scvu")
+text = "Zeus
+[Enter]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer/Space/Stops/GreenPlanet/Label" unique_id=935300493]
+z_index = -1
+z_as_relative = false
+points = PackedVector2Array(48, 26, 32, 48)
+width = 1.0
+default_color = Color(0.09803922, 0.29803923, 0.09803922, 1)
+
+[node name="EnterBox" type="Sprite2D" parent="CanvasLayer/Space/Stops/GreenPlanet/Label" unique_id=1714527111]
 z_index = -1
 position = Vector2(48, 13.999987)
 scale = Vector2(1, 0.999999)
@@ -398,7 +442,7 @@ gui_canvas_layer = NodePath("../../GuiCanvasLayer")
 stops = NodePath("../../CanvasLayer/Space/Stops")
 
 [node name="CountdownTimer" type="Timer" parent="CountdownLayer" unique_id=487332361]
-wait_time = 600.0
+wait_time = 300.0
 one_shot = true
 autostart = true
 
