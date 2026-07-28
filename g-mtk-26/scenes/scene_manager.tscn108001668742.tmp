@@ -2,20 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://ch5r7mnwduxih" path="res://scenes/main_menu.tscn" id="1_65mdo"]
 [ext_resource type="Script" uid="uid://b6l67a62muibh" path="res://scenes/scene_manager.gd" id="1_b81s6"]
-[ext_resource type="PackedScene" uid="uid://djqf6p1tkkgcj" path="res://scenes/space.tscn" id="1_we8k5"]
+[ext_resource type="PackedScene" uid="uid://djqf6p1tkkgcj" path="res://scenes/space_scene.tscn" id="1_we8k5"]
 
-[node name="SceneManager" type="Node" unique_id=1948687918 node_paths=PackedStringArray("main_menu_layer", "space_layer", "main_menu")]
+[node name="SceneManager" type="Node" unique_id=1948687918 node_paths=PackedStringArray("main_menu", "space_scene")]
 script = ExtResource("1_b81s6")
-main_menu_scene = ExtResource("1_65mdo")
-space_scene = ExtResource("1_we8k5")
-main_menu_layer = NodePath("MainMenuLayer")
-space_layer = NodePath("SpaceLayer")
-main_menu = NodePath("MainMenuLayer/MainMenu")
+main_menu = NodePath("MenuLayer/MainMenu")
+space_scene = NodePath("SpaceScene")
 
-[node name="SpaceLayer" type="CanvasLayer" parent="." unique_id=1427159126]
+[node name="SpaceScene" parent="." unique_id=1545532700 instance=ExtResource("1_we8k5")]
+visible = false
 
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=1344182898]
-layer = 6
+layer = 4
 
 [node name="FadeInRect" type="ColorRect" parent="FadeLayer" unique_id=1156186971]
 visible = false
@@ -32,9 +30,9 @@ color = Color(0, 0, 0, 1)
 [node name="FadeTimer" type="Timer" parent="FadeLayer" unique_id=14446499]
 one_shot = true
 
-[node name="MainMenuLayer" type="CanvasLayer" parent="." unique_id=1946809615]
-layer = 5
+[node name="MenuLayer" type="CanvasLayer" parent="." unique_id=1946809615]
+layer = 4
 
-[node name="MainMenu" parent="MainMenuLayer" unique_id=334547364 instance=ExtResource("1_65mdo")]
+[node name="MainMenu" parent="MenuLayer" unique_id=334547364 instance=ExtResource("1_65mdo")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1411013119]

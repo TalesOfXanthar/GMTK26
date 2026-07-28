@@ -1,12 +1,17 @@
 extends Node
 
-@export var space_scene = preload("res://scenes/space_scene.tscn")
+@export var space_scene = preload("res://scenes/space.tscn")
 
 var ship_inv : ShipInventory
 
 func _ready() -> void:
+	GlobalData.game_started.connect(on_game_start)
 	GlobalData.event_triggered.connect(event)
-	ship_inv = get_node("/root/SceneManager/SpaceScene/ItemShipLayer/ShipInventory")
+
+## Called when the space scene is added to scene manager, to know when to 
+## search for the inventory node
+func on_game_start():
+	ship_inv = get_node("/root/SceneManager/SpaceLayer/Space/ItemShipLayer/ShipInventory")
 
 func event(event_name):
 	var event_callable := Callable.create(self, event_name)
@@ -16,12 +21,12 @@ func nothing():
 	pass
 
 func restart():
-	GlobalData.fade_out_completed.connect(restart_afterfade)
+	Fader.fade_out_completed.connect(restart_afterfade)
 
 func restart_afterfade():
-	GlobalData.fade_out_completed.disconnect(restart_afterfade)
-	GlobalData.fade_in()
-	get_node("/root/SceneManager/SpaceScene").queue_free()
+	Fader.fade_out_completed.disconnect(restart_afterfade)
+	Fader.fade_in()
+	get_node("/root/SceneManager/SpaceLayer/Space").queue_free()
 	GlobalData.input_movement_monitoring = true
 	get_node("/root/SceneManager").add_child(space_scene.instantiate())
 	

@@ -130,7 +130,7 @@
 					},
 			},
 		},
-	"stranded_astro":
+	"stranded":
 		{
 			"sprite_path": "res://visual_assets/encounters/strandeda.png",
 			"descriptions": 

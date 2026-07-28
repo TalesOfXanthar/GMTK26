@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ovpba00fdwt"
-path="res://.godot/imported/signalsheet.webp-e38c6dcc666bd1fca748ef7d5c8edcf4.ctex"
+uid="uid://bhmruoo05vxmv"
+path="res://.godot/imported/posiedon.png-58888f5e11060b63f48ace8a1eae7677.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visual_assets/space_sprites/signalsheet.webp"
-dest_files=["res://.godot/imported/signalsheet.webp-e38c6dcc666bd1fca748ef7d5c8edcf4.ctex"]
+source_file="res://visual_assets/space_sprites/posiedon.png"
+dest_files=["res://.godot/imported/posiedon.png-58888f5e11060b63f48ace8a1eae7677.ctex"]
 
 [params]
 

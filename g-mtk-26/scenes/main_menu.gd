@@ -1,6 +1,8 @@
-extends TextureRect
+extends Control
 
-signal wiefwij
+signal trigger_start
+
+@export var star_background : TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,7 +11,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	star_background.position = star_background.position.move_toward(Vector2(-384, -216), 0.1)
+	if star_background.position == Vector2(-384, -216):
+		star_background.position = Vector2.ZERO
 
 
 func _on_credits_pressed() -> void:
@@ -25,4 +29,4 @@ func _on_quit_pressed() -> void:
 
 
 func _on_play_pressed() -> void:
-	wiefwij.emit()
+	trigger_start.emit()

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dev54ka0hrud8" path="res://scripts/text_box.gd" id="1_wscpg"]
 [ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual_assets/theme_assets/text_theme.tres" id="2_dyarx"]
 
-[node name="Control" type="Control" unique_id=635419347 node_paths=PackedStringArray("current_label", "choice_1", "choice_2", "choice_3", "timer")]
+[node name="TextBox" type="Control" unique_id=635419347 node_paths=PackedStringArray("current_label", "choice_1", "choice_2", "choice_3", "timer")]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 3
 anchors_preset = 15

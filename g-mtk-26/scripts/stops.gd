@@ -111,8 +111,8 @@ func stop_area_entered(useless_var, encounter_id):
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("enter") && input_enter_monitoring == true:
 		GlobalData.input_movement_monitoring = false
-		GlobalData.fade_out()
-		GlobalData.fade_out_completed.connect(start_interaction)
+		Fader.fade_out()
+		Fader.fade_out_completed.connect(start_interaction)
 		encounter_sfx.play()
 
 func _process(delta: float) -> void:
@@ -134,10 +134,12 @@ func stop_area_exited(useless_var, encounter_id):
 	label_timer.wait_time = label_fade_time
 	fade_out_active = true
 	label_timer.start()
+	temp_stop_id_for_planets = null
 
 
 func start_interaction():
-	GlobalData.fade_out_completed.disconnect(start_interaction)
+	Fader.fade_out_completed.disconnect(start_interaction)
+	Fader.fade_in()
 	
 	if temp_stop_id_for_planets	!= null:
 		stop_id = temp_stop_id_for_planets

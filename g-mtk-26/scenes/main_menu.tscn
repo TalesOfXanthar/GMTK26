@@ -1,17 +1,25 @@
 [gd_scene format=3 uid="uid://ch5r7mnwduxih"]
 
-[ext_resource type="Texture2D" uid="uid://i58j6gxrtmt4" path="res://visual_assets/stars_extra_smol.jpg" id="1_wu84c"]
 [ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual_assets/theme_assets/text_theme.tres" id="2_8ln24"]
 [ext_resource type="Script" uid="uid://mffupagacsjk" path="res://scenes/main_menu.gd" id="2_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://b7g1v21rb36x2" path="res://visual_assets/gui_elements/enter_box.png" id="3_rtw2f"]
 [ext_resource type="PackedScene" uid="uid://yu1fmj1xxffm" path="res://scenes/credits_box.tscn" id="4_oa1go"]
+[ext_resource type="Texture2D" uid="uid://b6onr1ayekdi1" path="res://visual_assets/space_sprites/stars_extra_smol_four.png" id="5_8ln24"]
 
-[node name="MainMenu" type="TextureRect" unique_id=334547364]
+[node name="MainMenu" type="Control" unique_id=1495957462 node_paths=PackedStringArray("star_background")]
 z_index = 4
+layout_mode = 3
+anchors_preset = 0
 offset_right = 384.0
 offset_bottom = 216.0
-texture = ExtResource("1_wu84c")
 script = ExtResource("2_rtw2f")
+star_background = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=972135609]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 432.0
+texture = ExtResource("5_8ln24")
 
 [node name="Label" type="Label" parent="." unique_id=2098367638]
 layout_mode = 1
@@ -24,7 +32,7 @@ offset_right = 91.0
 offset_bottom = 103.0
 grow_horizontal = 2
 theme = ExtResource("2_8ln24")
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 40
 text = "Novascape"
 
 [node name="Quit" type="Button" parent="." unique_id=2110466788]
@@ -38,7 +46,7 @@ offset_right = 167.0
 offset_bottom = 18.0
 grow_vertical = 2
 theme = ExtResource("2_8ln24")
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 20
 text = "Quit"
 icon = ExtResource("3_rtw2f")
 flat = true
@@ -58,7 +66,7 @@ offset_bottom = 18.0
 grow_horizontal = 0
 grow_vertical = 2
 theme = ExtResource("2_8ln24")
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 20
 text = "Play"
 icon = ExtResource("3_rtw2f")
 flat = true
@@ -78,7 +86,7 @@ offset_bottom = -44.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_8ln24")
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 20
 text = "Credits"
 icon = ExtResource("3_rtw2f")
 flat = true

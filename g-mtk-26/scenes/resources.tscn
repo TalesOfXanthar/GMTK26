@@ -4,32 +4,31 @@
 [ext_resource type="Script" uid="uid://bcqdkwd1c2j28" path="res://scenes/resources.gd" id="1_hkvus"]
 [ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual_assets/theme_assets/text_theme.tres" id="2_dqf23"]
 
-[node name="Resources" type="Control" unique_id=988296465 node_paths=PackedStringArray("resource_text")]
-layout_mode = 3
-anchors_preset = 0
+[node name="Resources" type="Node2D" unique_id=670709610 node_paths=PackedStringArray("fuel_label", "engine_heat_label")]
+modulate = Color(1, 1, 1, 0)
 script = ExtResource("1_hkvus")
-resource_text = NodePath("RichTextLabel")
-
-[node name="Control" type="Control" parent="." unique_id=1292933437]
-anchors_preset = 0
-offset_left = 256.0
-offset_top = 8.0
-offset_right = 384.0
-offset_bottom = 120.0
+fuel_label = NodePath("FuelLabel")
+engine_heat_label = NodePath("EngineHeatLabel")
 
 [node name="Resources" type="Sprite2D" parent="." unique_id=1011495223]
-position = Vector2(320, 32)
+position = Vector2(64, 16)
 texture = ExtResource("1_3m1lq")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2028853108]
-layout_mode = 0
-offset_left = 264.0
-offset_top = 16.0
-offset_right = 376.0
-offset_bottom = 48.0
+[node name="FuelLabel" type="RichTextLabel" parent="." unique_id=2028853108]
+offset_left = 8.0
+offset_right = 120.0
+offset_bottom = 22.0
 theme = ExtResource("2_dqf23")
-text = "Fuel: 100%
-Engine Heat: 10%"
+text = "Fuel: 100%"
+vertical_alignment = 1
+
+[node name="EngineHeatLabel" type="RichTextLabel" parent="." unique_id=140016250]
+offset_left = 8.0
+offset_top = 10.0
+offset_right = 120.0
+offset_bottom = 32.0
+theme = ExtResource("2_dqf23")
+text = "Engine Heat: 10%"
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=56917811]

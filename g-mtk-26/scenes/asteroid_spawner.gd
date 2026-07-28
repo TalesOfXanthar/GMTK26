@@ -1,58 +1,69 @@
 extends Node2D
 
+@export var player_ship : CharacterBody2D
 
 @export var asteroid_scene : PackedScene
 
+@export var belt_0_timer: Timer
 @export var belt_1_timer: Timer
 @export var belt_2_timer: Timer
-@export var belt_3_timer: Timer
 
-var spawn_cords_belt_1 = [
-	Vector2(2085, 0),
-	Vector2(2130, 0),
-	Vector2(2175, 0),
+var timers = [
+	belt_0_timer,
+	belt_1_timer,
+	belt_2_timer,
 ]
 
-var spawn_cords_belt_2 = [
-	Vector2(2912, 0),
-	Vector2(2792, 0),
-	Vector2(2768, 0),
-]
-
-var spawn_cords_belt_3 = [
-	Vector2(5248, 0),
-	Vector2(5120, 0),
-	Vector2(5169, 0),
-]
+var belt_dict = {
+	"position": [
+		[2085, 2130, 2175,],
+		[2912, 2792, 2768,],
+		[5248, 5120, 5169,],
+	],
+	"position_mod": [
+		[-200, 10,],
+		[-100, 20,],
+		[-200, 20,],
+	],
+	"velocity_mod": [
+		[-1, 1,],
+		[-5, 5,],
+		[-10, 10,],
+	],
+	"scale_mod": [
+		[0.4, 1.1,], 
+		[0.5, 2,],
+		[0.6, 2.5,],
+	],
+	"timer": [
+		[0.1, 0.8,],
+		[0.15, 1.15,],
+		[0.20, 1.20,],
+	],
+}
 
 func _ready() -> void:
-	belt_1_timer.timeout.connect(_on_asteroid_timer_timeout1)
-	belt_1_timer.timeout.connect(_on_asteroid_timer_timeout2)
-	belt_2_timer.timeout.connect(_on_asteroid_timer_timeout2)
-	belt_1_timer.timeout.connect(_on_asteroid_timer_timeout3)
-	belt_2_timer.timeout.connect(_on_asteroid_timer_timeout3)
-	belt_3_timer.timeout.connect(_on_asteroid_timer_timeout3)
+	belt_0_timer.timeout.connect(_on_asteroid_timer_timeout.bind(0))
+	belt_0_timer.timeout.connect(_on_asteroid_timer_timeout.bind(1))
+	belt_1_timer.timeout.connect(_on_asteroid_timer_timeout.bind(1))
+	belt_0_timer.timeout.connect(_on_asteroid_timer_timeout.bind(2))
+	belt_1_timer.timeout.connect(_on_asteroid_timer_timeout.bind(2))
+	belt_2_timer.timeout.connect(_on_asteroid_timer_timeout.bind(2))
 
-func _on_asteroid_timer_timeout1():
-	var asteroid : RigidBody2D = asteroid_scene.instantiate()
-	asteroid.position = spawn_cords_belt_1.pick_random()
-	asteroid.position.x += randi_range(-40, 10)
-	asteroid.linear_velocity = (Vector2(0,100))
-	add_child(asteroid)
-	belt_1_timer.wait_time = randf() + 0.1
+
+func _on_asteroid_timer_timeout(location : int):
+	var asteroid : Asteroid = asteroid_scene.instantiate()
+	asteroid.player_ship = player_ship
+	asteroid.position = Vector2(belt_dict["position"][location].pick_random(), player_ship.position.y - 300)
+	asteroid.position.x += randi_range(belt_dict["position_mod"][location][0], belt_dict["position_mod"][location][1])
+	asteroid.linear_velocity = (Vector2(0,100 + randi_range(belt_dict["velocity_mod"][location][0], belt_dict["velocity_mod"][location][1])))
 	
-func _on_asteroid_timer_timeout2():
-	var asteroid : RigidBody2D = asteroid_scene.instantiate()
-	asteroid.position = spawn_cords_belt_2.pick_random()
-	asteroid.position.x += randi_range(-100, 20)
-	asteroid.linear_velocity = (Vector2(0,100 + randi_range(-1, 1)))
+	var random_float = randf_range(belt_dict["scale_mod"][location][0], belt_dict["scale_mod"][location][1])
+	var random_scale = Vector2(random_float, random_float)
+	asteroid.scale = random_scale
+	asteroid.sprite_node.scale = random_scale
+	asteroid.collision_node.scale = random_scale
+	
 	add_child(asteroid)
-	belt_2_timer.wait_time = randf() + 0.15
-
-func _on_asteroid_timer_timeout3():
-	var asteroid : RigidBody2D = asteroid_scene.instantiate()
-	asteroid.position = spawn_cords_belt_3.pick_random()
-	asteroid.position.x += randi_range(-200, 20)
-	asteroid.linear_velocity = (Vector2(0,100 + randi_range(-10, 10)))
-	add_child(asteroid)
-	belt_3_timer.wait_time = randf() + 0.20
+	var timer : Timer = get("belt_" + str(location) + "_timer")
+	timer.wait_time = randf_range(belt_dict["timer"][location][0], belt_dict["timer"][location][1])

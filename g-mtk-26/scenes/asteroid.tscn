@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_kt33t"]
 radius = 8.0
 
-[node name="Asteroid" type="RigidBody2D" unique_id=245858847]
+[node name="Asteroid" type="RigidBody2D" unique_id=245858847 node_paths=PackedStringArray("collision_node", "sprite_node")]
 collision_layer = 4
 collision_mask = 2
 mass = 0.001
@@ -16,6 +16,8 @@ max_contacts_reported = 1
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_6mo6b")
+collision_node = NodePath("CollisionShape2D")
+sprite_node = NodePath("Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=213631650]
 shape = SubResource("CircleShape2D_kt33t")
