@@ -1,6 +1,6 @@
 extends Node
 
-@export var space_scene = preload("res://scenes/space.tscn")
+@export var space_scene = preload("res://scenes/space/space.tscn")
 
 var ship_inv : ShipInventory
 

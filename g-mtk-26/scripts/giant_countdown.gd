@@ -54,10 +54,6 @@ func _process(delta: float) -> void:
 	if minutes_left == 0 and seconds_left == 60:
 		$AudioStreamPlayer.stop()
 		$Starchild.play()
-	if minutes_left == 4 and seconds_left == 40:
-		$Tutorial.show()
-	elif minutes_left ==4 and seconds_left == 15:
-		$Tutorial.hide()
 		 
 	#if minutes_left <= 5:
 	#	add_theme_font_size_override("font_size", 20)

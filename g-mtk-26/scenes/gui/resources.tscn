@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://kb6oyn3bkj1n"]
 
 [ext_resource type="Texture2D" uid="uid://da1ak7d20x8yi" path="res://visual_assets/gui_elements/resources.png" id="1_3m1lq"]
-[ext_resource type="Script" uid="uid://bcqdkwd1c2j28" path="res://scenes/resources.gd" id="1_hkvus"]
+[ext_resource type="Script" uid="uid://bcqdkwd1c2j28" path="res://scripts/resources.gd" id="1_hkvus"]
 [ext_resource type="Theme" uid="uid://b1ivpb6xgg05v" path="res://visual_assets/theme_assets/text_theme.tres" id="2_dqf23"]
 
 [node name="Resources" type="Node2D" unique_id=670709610 node_paths=PackedStringArray("fuel_label", "engine_heat_label")]
-modulate = Color(1, 1, 1, 0)
 script = ExtResource("1_hkvus")
 fuel_label = NodePath("FuelLabel")
 engine_heat_label = NodePath("EngineHeatLabel")
@@ -16,7 +15,7 @@ texture = ExtResource("1_3m1lq")
 
 [node name="FuelLabel" type="RichTextLabel" parent="." unique_id=2028853108]
 offset_left = 8.0
-offset_right = 120.0
+offset_right = 128.0
 offset_bottom = 22.0
 theme = ExtResource("2_dqf23")
 text = "Fuel: 100%"
@@ -25,7 +24,7 @@ vertical_alignment = 1
 [node name="EngineHeatLabel" type="RichTextLabel" parent="." unique_id=140016250]
 offset_left = 8.0
 offset_top = 10.0
-offset_right = 120.0
+offset_right = 128.0
 offset_bottom = 32.0
 theme = ExtResource("2_dqf23")
 text = "Engine Heat: 10%"

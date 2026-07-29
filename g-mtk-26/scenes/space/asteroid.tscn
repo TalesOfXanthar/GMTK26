@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://58dxgla25ysd"]
 
-[ext_resource type="Script" uid="uid://bx108j1u3nnlo" path="res://scenes/asteroid.gd" id="1_6mo6b"]
+[ext_resource type="Script" uid="uid://bx108j1u3nnlo" path="res://scripts/asteroid.gd" id="1_6mo6b"]
 [ext_resource type="Texture2D" uid="uid://dx4bochjnbj5h" path="res://visual_assets/space_sprites/novascape_asteroid.webp" id="1_akfqu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kt33t"]

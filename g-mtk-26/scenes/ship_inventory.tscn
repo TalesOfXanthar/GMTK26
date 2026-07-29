@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmt0eg8f70xe4"]
 
-[ext_resource type="Script" uid="uid://k4flk1ff2ogf" path="res://scenes/ship_inventory.gd" id="1_bkjup"]
+[ext_resource type="Script" uid="uid://k4flk1ff2ogf" path="res://scripts/ship_inventory.gd" id="1_bkjup"]
 [ext_resource type="Texture2D" uid="uid://cb51dsdledo4e" path="res://visual_assets/gui_elements/inventory.png" id="1_olku4"]
 [ext_resource type="PackedScene" uid="uid://3oa80feqxpn8" path="res://scenes/item.tscn" id="2_xb4i3"]
 [ext_resource type="Texture2D" uid="uid://11xcfp5qm8wm" path="res://visual_assets/gui_elements/ship.png" id="3_832n6"]

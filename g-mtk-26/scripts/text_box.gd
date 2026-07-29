@@ -113,13 +113,15 @@ func shift_to_next_description():
 	
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("mouse_left_click"):
-		if current_label.visible_ratio == 1.0 && current_label != get_node("TabContainer/ScrollContainer/VBoxContainer/QuestionLabel"):
+		if encounter_id == "flower":
+			end_dialogue.emit()
+		
+		elif current_label.visible_ratio == 1.0 && current_label != get_node("TabContainer/ScrollContainer/VBoxContainer/QuestionLabel"):
 				if descriptions_left == 0:
 					if end_result == false:
 						dialogue_progress_sfx.play()
 						shift_to_question()
 					else:
-						GlobalData.input_movement_monitoring = true
 						set_process_input(false)
 						end_dialogue.emit()
 				else:

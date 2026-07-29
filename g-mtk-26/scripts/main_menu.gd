@@ -6,9 +6,7 @@ signal trigger_start
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	star_background.position = star_background.position.move_toward(Vector2(-384, -216), 0.1)

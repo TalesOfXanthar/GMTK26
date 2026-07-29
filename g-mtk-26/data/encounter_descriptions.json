@@ -53,6 +53,22 @@
 					},
 			},
 		},
+	"flower": 
+		{
+			"sprite_path": "res://visual_assets/encounters/flower.png",
+			"descriptions": 
+				[
+				"",
+			],
+			"question": "                          ",
+			"choices": 
+				{
+				"Leave": 
+					{
+					"1": ["", "reset_heat"],
+					},
+			},
+		},
 	"red_cat":
 		{
 			"sprite_path": "res://visual_assets/encounters/cat_mask.png",

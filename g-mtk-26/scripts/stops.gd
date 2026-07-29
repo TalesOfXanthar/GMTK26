@@ -30,6 +30,7 @@ var label_deleted := false
 @export var stranded : Area2D
 @export var robot : Area2D
 @export var green_planet : Area2D
+@export var flower : Area2D
 
 var area_dict = {
 	"placeholder_planet": {
@@ -62,6 +63,10 @@ var area_dict = {
 	"green_planet": {
 		"repeat_state": 0,
 		"node_name": "GreenPlanet"
+	},
+	"flower": {
+		"repeat_state": 2,
+		"node_name": "Flower"
 	}
 }
 
@@ -85,6 +90,8 @@ func _ready() -> void:
 	robot.body_exited.connect(stop_area_exited.bind("robot"))
 	green_planet.body_entered.connect(stop_area_entered.bind("green_planet"))
 	green_planet.body_exited.connect(stop_area_exited.bind("green_planet"))
+	flower.body_entered.connect(stop_area_entered.bind("flower"))
+	flower.body_exited.connect(stop_area_exited.bind("flower"))
 
 
 
@@ -160,4 +167,7 @@ func start_interaction():
 	var interaction = interaction_scene.instantiate()
 	gui_canvas_layer.add_child(interaction)
 	GlobalData.input_movement_monitoring = false
+	
+	if stop_id == "flower":
+		get_node("/root/SceneManager/SpaceLayer/Space/CountdownLayer/GiantCountdown/AudioStreamPlayer").stop()
 	
